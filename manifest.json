@@ -1,0 +1,501 @@
+{
+    "@platforms": ["android", "iPhone", "iPad"],
+    "id": "H5C4A259A",/*应用的标识，创建应用时自动生成，勿手动修改*/
+    "name": "2366",/*应用名称，程序桌面图标名称*/
+    "version": {
+        "name": "1.0",/*应用版本名称*/
+        "code": ""
+    },
+    "description": "",/*应用描述信息*/
+    "icons": {
+        "72": "icon.png"
+    },
+    "launch_path": "index.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
+    "developer": {
+        "name": "",/*开发者名称*/
+        "email": "",/*开发者邮箱地址*/
+        "url": ""/*开发者个人主页地址*/
+    },
+    "permissions": {
+        "Messaging":{
+        	"description": "短彩邮件插件"
+        },
+        "Cache": {
+            "description": "管理应用缓存"
+        },
+        "Console": {
+            "description": "跟踪调试输出日志"
+        },
+        "Contacts": {
+            "description": "访问系统联系人信息"
+        },
+        "Events": {
+            "description": "应用扩展事件"
+        },
+        "Maps": {
+            "description": "管理地图插件"
+        },
+        "Speech": {
+            "description": "管理语音识别插件"
+        }
+    },
+    "plus": {
+        "splashscreen": {
+            "autoclose": true,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
+            "waiting": true/*是否在程序启动界面显示等待雪花，true表示显示，false表示不显示。*/
+        },
+        "popGesture": "close",/*设置应用默认侧滑返回关闭Webview窗口，"none"为无侧滑返回功能，"hide"为侧滑隐藏Webview窗口。参考http://ask.dcloud.net.cn/article/102*/
+        "runmode": "normal",/*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
+        "signature": "Sk9JTiBVUyBtYWlsdG86aHIyMDEzQGRjbG91ZC5pbw==",/*可选，保留给应用签名，暂不使用*/
+        "distribute": {
+            "apple": {
+                "appid": "",/*iOS应用标识，苹果开发网站申请的appid，如io.dcloud.HelloH5*/
+                "mobileprovision": "",/*iOS应用打包配置文件*/
+                "password": "",/*iOS应用打包个人证书导入密码*/
+                "p12": "",/*iOS应用打包个人证书，打包配置文件关联的个人证书*/
+                "devices": "universal",/*iOS应用支持的设备类型，可取值iphone/ipad/universal*/
+                "frameworks":[
+                ]/*调用Native.js调用原生Objective-c API需要引用的FrameWork，如需调用GameCenter，则添加"GameKit.framework"*/
+            },
+            "google": {
+                "packagename": "",/*Android应用包名，如io.dcloud.HelloH5*/
+                "keystore": "",/*Android应用打包使用的密钥库文件*/
+                "password": "",/*Android应用打包使用密钥库中证书的密码*/
+                "aliasname": "",/*Android应用打包使用密钥库中证书的别名*/
+               "permissions": ["<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>","<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>","<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>","<uses-permission android:name=\"android.permission.VIBRATE\"/>","<uses-permission android:name=\"android.permission.READ_LOGS\"/>","<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>","<uses-feature android:name=\"android.hardware.camera.autofocus\"/>","<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>","<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>","<uses-permission android:name=\"android.permission.CAMERA\"/>","<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>","<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>","<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>","<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>","<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>","<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>","<uses-permission android:name=\"android.permission.CALL_PHONE\"/>","<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>","<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>","<uses-feature android:name=\"android.hardware.camera\"/>","<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>","<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"]
+				/*使用Native.js调用原生安卓API需要使用到的系统权限*/
+            },
+            "orientation": [
+                "portrait-primary"
+            ],/*应用支持的方向，portrait-primary：竖屏正方向；portrait-secondary：竖屏反方向；landscape-primary：横屏正方向；landscape-secondary：横屏反方向*/
+            "icons": {
+                "ios": {
+                    "prerendered": true, /*应用图标是否已经高亮处理，在iOS6及以下设备上有效*/
+                     /*应用图标，分辨率：512x512，用于自动生成各种尺寸程序图标*/
+                    "iphone": {
+                        "normal": "", /*iPhone3/3GS程序图标，分辨率：57x57*/
+                        "retina": "", /*iPhone4程序图标，分辨率：114x114*/
+                         /*iPhone4S/5/6程序图标，分辨率：120x120*/
+			 /*iPhone6 Plus程序图标，分辨率：180x180*/
+                        "spotlight-normal": "", /*iPhone3/3GS Spotlight搜索程序图标，分辨率：29x29*/
+                        "spotlight-retina": "", /*iPhone4 Spotlight搜索程序图标，分辨率：58x58*/
+                         /*iPhone4S/5/6 Spotlight搜索程序图标，分辨率：80x80*/
+                        "settings-normal": "", /*iPhone4设置页面程序图标，分辨率：29x29*/
+                         /*iPhone4S/5/6设置页面程序图标，分辨率：58x58*/
+			"app@2x":"C:/Users/Administrator/Desktop/log.png","app@3x":"C:/Users/Administrator/Desktop/log.png","settings@3x":"C:/Users/Administrator/Desktop/log.png","settings@2x":"C:/Users/Administrator/Desktop/log.png","spotlight@2x":"C:/Users/Administrator/Desktop/log.png","spotlight@3x":"C:/Users/Administrator/Desktop/log.png","notification@3x":"C:/Users/Administrator/Desktop/log.png","notification@2x":"C:/Users/Administrator/Desktop/log.png" /*iPhone6Plus设置页面程序图标，分辨率：87x87*/
+                    },
+                    "ipad": {
+                        "normal": "", /*iPad普通屏幕程序图标，分辨率：72x72*/
+                        "retina": "", /*iPad高分屏程序图标，分辨率：144x144*/
+                         /*iPad iOS7程序图标，分辨率：76x76*/
+                         /*iPad iOS7高分屏程序图标，分辨率：152x152*/
+                        "spotlight-normal": "", /*iPad Spotlight搜索程序图标，分辨率：50x50*/
+                        "spotlight-retina": "", /*iPad高分屏Spotlight搜索程序图标，分辨率：100x100*/
+                        /*iPad iOS7 Spotlight搜索程序图标，分辨率：40x40*/
+                        /*iPad iOS7高分屏Spotlight搜索程序图标，分辨率：80x80*/
+                        /*iPad设置页面程序图标，分辨率：29x29*/
+                        "app":"C:/Users/Administrator/Desktop/log.png","app@2x":"C:/Users/Administrator/Desktop/log.png","settings":"C:/Users/Administrator/Desktop/log.png","proapp@2x":"C:/Users/Administrator/Desktop/log.png","spotlight":"C:/Users/Administrator/Desktop/log.png","settings@2x":"C:/Users/Administrator/Desktop/log.png","spotlight@2x":"C:/Users/Administrator/Desktop/log.png","notification":"C:/Users/Administrator/Desktop/log.png","notification@2x":"C:/Users/Administrator/Desktop/log.png" /*iPad高分屏设置页面程序图标，分辨率：58x58*/
+                    },"appstore":"C:/Users/Administrator/Desktop/log.png"
+                },
+                "android": {
+                    "mdpi": "C:/Users/Administrator/Desktop/log.png", /*普通屏程序图标，分辨率：48x48*/
+                    "ldpi": "C:/Users/Administrator/Desktop/log.png", /*大屏程序图标，分辨率：48x48*/
+                    "hdpi": "C:/Users/Administrator/Desktop/log.png", /*高分屏程序图标，分辨率：72x72*/
+                    "xhdpi": "C:/Users/Administrator/Desktop/log.png",/*720P高分屏程序图标，分辨率：96x96*/
+                    "xxhdpi": "C:/Users/Administrator/Desktop/log.png","xxxhdpi":"C:/Users/Administrator/Desktop/log.png"/*1080P 高分屏程序图标，分辨率：144x144*/
+                }
+            },
+            "splashscreen": {
+                "ios": {
+                    "iphone": {
+                        "default": "", /*iPhone3启动图片选，分辨率：320x480*/
+                        "retina35": "C:/Users/Administrator/Desktop/1/ios/640x960.png",/*3.5英寸设备(iPhone4)启动图片，分辨率：640x960*/
+                        "retina40": "C:/Users/Administrator/Desktop/1/ios/640x1136.png",/*4.0 英寸设备(iPhone5/iPhone5s)启动图片，分辨率：640x1136*/
+                        "retina47": "C:/Users/Administrator/Desktop/1/ios/750x1334.png",/*4.7 英寸设备(iPhone6)启动图片，分辨率：750x1334*/
+                        "retina55": "C:/Users/Administrator/Desktop/1/ios/1242x2208.png",/*5.5 英寸设备(iPhone6 Plus)启动图片，分辨率：1242x2208*/
+                        "retina55l": "C:/Users/Administrator/Desktop/1/ios/2208x1242.png","iphonex":"C:/Users/Administrator/Desktop/1/ios/1125x2436.png","iphonexl":"C:/Users/Administrator/Desktop/1/ios/2346x1125.png"/*5.5 英寸设备(iPhone6 Plus)横屏启动图片，分辨率：2208x1242*/
+                    },
+                    "ipad": {
+                        "portrait": "C:/Users/Administrator/Desktop/1/ios/768x1004.png", /*iPad竖屏启动图片，分辨率：768x1004*/
+                        "portrait-retina": "C:/Users/Administrator/Desktop/1/ios/1536x2008.png",/*iPad高分屏竖屏图片，分辨率：1536x2008*/
+                        "landscape": "C:/Users/Administrator/Desktop/1/ios/1024x748.png", /*iPad横屏启动图片，分辨率：1024x748*/
+                        "landscape-retina": "C:/Users/Administrator/Desktop/1/ios/2048x1496.png", /*iPad高分屏横屏启动图片，分辨率：2048x1496*/
+                        "portrait7": "C:/Users/Administrator/Desktop/1/ios/768x1024.png", /*iPad iOS7竖屏启动图片，分辨率：768x1024*/
+                        "portrait-retina7": "C:/Users/Administrator/Desktop/1/ios/1536x2048.png",/*iPad iOS7高分屏竖屏图片，分辨率：1536x2048*/
+                        "landscape7": "C:/Users/Administrator/Desktop/1/ios/1024x768.png", /*iPad iOS7横屏启动图片，分辨率：1024x768*/
+                        "landscape-retina7": "C:/Users/Administrator/Desktop/1/ios/2048x1536.png"/*iPad iOS7高分屏横屏启动图片，分辨率：2048x1536*/
+                    }
+                },
+                "android": {
+                    "mdpi": "", /*普通屏启动图片，分辨率：240x282*/
+                    "ldpi": "", /*大屏启动图片，分辨率：320x442*/
+                    "hdpi": "C:/Users/Administrator/Desktop/1/安卓/480x762.png", /*高分屏启动图片，分辨率：480x762*/
+                    "xhdpi": "C:/Users/Administrator/Desktop/1/安卓/720x1242.png", /*720P高分屏启动图片，分辨率：720x1242*/
+                    "xxhdpi": "C:/Users/Administrator/Desktop/1/安卓/1080x1882.png"/*1080P高分屏启动图片，分辨率：1080x1882*/
+                }
+            }
+        },"adid":"126226060707"
+    },
+	"dependencies": {
+		"pages": {
+			"index.html": {
+				"resources": [],
+				"refer": [
+					"html/user.html"
+				],
+				"priority": 0
+			},
+			"html/user.html": {
+				"resources": [
+					"images/drawable-xhdpi/用户(1).png"
+				],
+				"refer": [
+					"index.html"
+				],
+				"priority": 0
+			}
+		},
+		"idle": {
+			"resources": [
+				"html/unfreeze3.html",
+				"lib/swiper-4.3.5/src/utils/class.js",
+				"lib/swiper-4.3.5/demos/060-pagination-fraction.html",
+				"html/wallet.html",
+				"lib/swiper-4.3.5/demos/420-custom-plugin.html",
+				"images/drawable-xhdpi/zfb.png",
+				"lib/swiper-4.3.5/src/components/core/core.less",
+				"lib/swiper-4.3.5/src/components/scrollbar/scrollbar.less",
+				"lib/swiper-4.3.5/demos/030-pagination.html",
+				"html/AlipayTopUP.html",
+				"lib/swiper-4.3.5/src/components/core/manipulation/appendSlide.js",
+				"html/emailreg2.html",
+				"lib/swiper-4.3.5/demos/140-centered-auto.html",
+				"lib/swiper-4.3.5/demos/410-virtual-slides.html",
+				"lib/swiper-4.3.5/src/components/core/breakpoints/index.js",
+				"lib/swiper-4.3.5/src/swiper.less",
+				"lib/swiper-4.3.5/src/components/controller/controller.js",
+				"lib/swiper-4.3.5/dist/js/swiper.esm.js",
+				"lib/swiper-4.3.5/demos/250-effect-flip.html",
+				"lib/swiper-4.3.5/src/components/core/images/preloadImages.js",
+				"img/h5_28.jpg",
+				"html/reg.html",
+				"lib/swiper.js",
+				"images/drawable-xhdpi/wde1.png",
+				"images/drawable-xhdpi/setting.png",
+				"lib/swiper-4.3.5/demos/290-dynamic-slides.html",
+				"fonts/mui.ttf",
+				"lib/swiper-4.3.5/src/components/core/update/updateSize.js",
+				"images/drawable-xhdpi/jifen0.png",
+				"img/pp_42.jpg",
+				"js/slidingEvent.js",
+				"images/drawable-xhdpi/yangzhengma.png",
+				"images/drawable-xhdpi/shouye2.png",
+				"lib/swiper-4.3.5/src/components/core/events/index.js",
+				"lib/swiper-4.3.5/dist/js/swiper.js",
+				"images/drawable-xhdpi/gantanhao.png",
+				"images/drawable-xhdpi/shouye.png",
+				"lib/swiper-4.3.5/demos/080-scrollbar.html",
+				"html/unfreeze.html",
+				"lib/swiper-4.3.5/src/components/core/slide/slideToClickedSlide.js",
+				"images/drawable-xhdpi/gsyh.png",
+				"img/s2_15.jpg",
+				"images/drawable-xhdpi/yonghuming.png",
+				"img/j1_34.jpg",
+				"lib/swiper-4.3.5/src/components/core/slide/slideToClosest.js",
+				"html/personal.html",
+				"images/drawable-xhdpi/anquan3.png",
+				"img/h4_26.jpg",
+				"images/drawable-xhdpi/fanhui2.png",
+				"images/drawable-xhdpi/wde2.png",
+				"images/drawable-xhdpi/jifen.png",
+				"lib/swiper-4.3.5/demos/070-pagination-custom.html",
+				"lib/swiper-4.3.5/src/utils/support.js",
+				"html/regemail.html",
+				"html/notice.html",
+				"lib/swiper-4.3.5/src/components/core/translate/setTranslate.js",
+				"lib/swiper-4.3.5/src/components/core/update/updateSlides.js",
+				"lib/swiper-4.3.5/src/components/core/grab-cursor/setGrabCursor.js",
+				"images/drawable-xhdpi/diquzhongguoxuanxiang.png",
+				"lib/swiper-4.3.5/src/components/effect-fade/effect-fade.js",
+				"lib/swiper-4.3.5/src/components/core/classes/removeClasses.js",
+				"images/drawable-xhdpi/shang.png",
+				"images/drawable-xhdpi/gongshangyinhangka.png",
+				"lib/swiper-4.3.5/demos/130-centered.html",
+				"lib/swiper-4.3.5/src/components/core/events/onTouchEnd.js",
+				"lib/swiper-4.3.5/demos/390-autoheight.html",
+				"img/logo_51.jpg",
+				"lib/swiper-4.3.5/src/components/zoom/zoom.less",
+				"lib/swiper-4.3.5/playground/index.html",
+				"lib/swiper-4.3.5/demos/330-hash-navigation.html",
+				"images/drawable-xhdpi/anquan2.png",
+				"lib/swiper-4.3.5/demos/310-thumbs-gallery-loop.html",
+				"images/drawable-xhdpi/yueb.png",
+				"lib/swiper-4.3.5/demos/300-thumbs-gallery.html",
+				"lib/swiper-4.3.5/demos/120-slides-per-view-auto.html",
+				"images/drawable-xhdpi/chenggong.png",
+				"img/dh_47.jpg",
+				"js/slick.min.js",
+				"lib/swiper-4.3.5/src/components/effect-coverflow/effect-coverflow.less",
+				"lib/swiper-4.3.5/src/components/core/events/onTouchStart.js",
+				"images/drawable-xhdpi/yinhangka.png",
+				"lib/swiper-4.3.5/src/components/autoplay/autoplay.js",
+				"images/drawable-xhdpi/tijiaochenggong.png",
+				"images/drawable-xhdpi/Ibeizhuanzhang.png",
+				"lib/swiper-4.3.5/src/components/core/update/updateSlidesOffset.js",
+				"img/lq.mp4",
+				"images/drawable-xhdpi/审核标注.png",
+				"lib/swiper-4.3.5/demos/350-rtl.html",
+				"lib/swiper-4.3.5/CONTRIBUTING.md",
+				"lib/swiper-4.3.5/src/components/core/slide/slideReset.js",
+				"img/j6_34.jpg",
+				"html/emailreg.html",
+				"lib/swiper-4.3.5/src/components/navigation/navigation.js",
+				"html/security.html",
+				"lib/swiper-4.3.5/src/modules/device/device.js",
+				"lib/swiper-4.3.5/demos/160-scroll-container.html",
+				"img/s1_13.jpg",
+				"lib/swiper-4.3.5/src/components/lazy/lazy.less",
+				"images/drawable-xhdpi/anquan1.gif",
+				"lib/swiper-4.3.5/src/components/core/defaults.js",
+				"images/drawable-xhdpi/tz.png",
+				"img/logo_03.jpg",
+				"lib/swiper-4.3.5/src/components/hash-navigation/hash-navigation.js",
+				"img/j5_34.jpg",
+				"html/find.html",
+				"images/drawable-xhdpi/renzhengxuanze2.png",
+				"lib/swiper-4.3.5/scripts/gulpfile.js",
+				"lib/swiper-4.3.5/demos/340-history.html",
+				"lib/swiper-4.3.5/gulpfile.js",
+				"lib/swiper-4.3.5/demos/240-effect-coverflow.html",
+				"images/drawable-xhdpi/tianjiayinhangka.png",
+				"lib/swiper-4.3.5/src/components/core/translate/getTranslate.js",
+				"images/drawable-xhdpi/email.png",
+				"img/zht_03.jpg",
+				"images/drawable-xhdpi/jia2.png",
+				"lib/swiper-4.3.5/src/components/core/classes/index.js",
+				"lib/swiper-4.3.5/src/components/core/events/onTouchMove.js",
+				"images/drawable-xhdpi/租金.png",
+				"images/drawable-xhdpi/xiayige.png",
+				"images/drawable-xhdpi/xz1.png",
+				"lib/swiper-4.3.5/demos/180-nested.html",
+				"lib/swiper-4.3.5/demos/260-keyboard-control.html",
+				"css/swiper.css",
+				"lib/swiper-4.3.5/src/components/core/images/loadImage.js",
+				"lib/swiper-4.3.5/src/components/effect-flip/effect-flip.js",
+				"lib/swiper-4.3.5/demos/110-slides-per-view.html",
+				"images/drawable-xhdpi/kf.png",
+				"lib/swiper-4.3.5/src/components/core/manipulation/removeSlide.js",
+				"images/drawable-xhdpi/renzhengxuanze.png",
+				"img/gbanner_31.jpg",
+				"lib/swiper-4.3.5/src/components/core/transition/setTransition.js",
+				"lib/swiper-4.3.5/src/components/controller/controller.less",
+				"html/unfreeze4.html",
+				"images/drawable-xhdpi/phone.png",
+				"images/drawable-xhdpi/Ibeiyue.png",
+				"lib/swiper-4.3.5/src/components/virtual/virtual.js",
+				"lib/swiper-4.3.5/scripts/build-less.js",
+				"lib/swiper-4.3.5/component.json",
+				"img/h1_22.jpg",
+				"lib/swiper-4.3.5/src/modules/observer/observer.js",
+				"lib/swiper-4.3.5/src/components/core/breakpoints/setBreakpoint.js",
+				"lib/swiper-4.3.5/demos/280-autoplay.html",
+				"lib/swiper-4.3.5/demos/320-multiple-swipers.html",
+				"lib/swiper-4.3.5/demos/190-grab-cursor.html",
+				"lib/swiper-4.3.5/src/components/core/loop/loopCreate.js",
+				"lib/swiper-4.3.5/src/components/core/breakpoints/getBreakpoint.js",
+				"lib/swiper-4.3.5/src/components/core/update/updateProgress.js",
+				"images/drawable-xhdpi/jiaoyijilu.png",
+				"lib/swiper-4.3.5/demos/170-slides-per-column.html",
+				"lib/swiper-4.3.5/src/components/navigation/navigation.less",
+				"html/login.html",
+				"html/wxTopUp.html",
+				"html/Top-upway.html",
+				"html/freeze.html",
+				"images/drawable-xhdpi/gongshangyinhang.png",
+				"img/h2_24.jpg",
+				"lib/swiper-4.3.5/src/components/core/manipulation/index.js",
+				"lib/swiper-4.3.5/src/components/history/history.js",
+				"lib/swiper-4.3.5/src/components/a11y/a11y.js",
+				"images/drawable-xhdpi/tx.png",
+				"html/settings.html",
+				"js/jquery.min.js",
+				"lib/swiper-4.3.5/package.json",
+				"img/banner__10.jpg",
+				"images/drawable-xhdpi/wt.png",
+				"lib/swiper-4.3.5/demos/370-lazy-load-images.html",
+				"lib/swiper-4.3.5/demos/150-freemode.html",
+				"lib/swiper-4.3.5/dist/js/swiper.min.js.map",
+				"lib/swiper-4.3.5/src/components/core/transition/index.js",
+				"lib/swiper-4.3.5/src/components/effect-flip/effect-flip.less",
+				"images/drawable-xhdpi/question.png",
+				"images/drawable-xhdpi/qianbaotu1.png",
+				"html/balance.html",
+				"lib/swiper-4.3.5/src/components/core/core-class.js",
+				"lib/swiper-4.3.5/src/components/lazy/lazy.js",
+				"images/drawable-xhdpi/cw.png",
+				"lib/swiper-4.3.5/src/components/core/update/updateSlidesClasses.js",
+				"lib/swiper-4.3.5/src/components/core/classes/addClasses.js",
+				"lib/swiper-4.3.5/src/components/zoom/zoom.js",
+				"lib/swiper-4.3.5/package-lock.json",
+				"lib/swiper-4.3.5/LICENSE",
+				"css/base.css",
+				"lib/swiper-4.3.5/src/components/core/update/updateAutoHeight.js",
+				"lib/swiper-4.3.5/dist/js/swiper.min.js",
+				"images/drawable-xhdpi/anquanbeijing.png",
+				"js/public.js",
+				"lib/swiper-4.3.5/src/modules/resize/resize.js",
+				"lib/swiper-4.3.5/Architecture.md",
+				"lib/swiper-4.3.5/src/components/core/update/updateClickedSlide.js",
+				"lib/swiper-4.3.5/demos/220-effect-fade.html",
+				"js/common.js",
+				"images/drawable-xhdpi/banner.png",
+				"images/drawable-xhdpi/订单.png",
+				"images/drawable-xhdpi/ib.png",
+				"lib/swiper-4.3.5/src/components/core/slide/slideNext.js",
+				"css/slick.css",
+				"fonts/iconfont.ttf",
+				"js/mui.js",
+				"images/drawable-xhdpi/gerenzhongxinxiayige.png",
+				"html/freeze4.html",
+				"lib/swiper-4.3.5/demos/020-navigation.html",
+				"lib/swiper-4.3.5/src/components/mousewheel/mousewheel.js",
+				"lib/swiper-4.3.5/demos/230-effect-cube.html",
+				"lib/swiper-4.3.5/src/components/effect-cube/effect-cube.js",
+				"images/drawable-xhdpi/wx1.png",
+				"lib/swiper-4.3.5/src/components/core/slide/slidePrev.js",
+				"lib/swiper-4.3.5/README.md",
+				"lib/swiper-4.3.5/src/components/core/slide/slideTo.js",
+				"lib/swiper-4.3.5/src/components/core/manipulation/addSlide.js",
+				"images/drawable-xhdpi/cck-02.png",
+				"lib/swiper-4.3.5/src/components/a11y/a11y.less",
+				"lib/swiper-4.3.5/src/components/core/events/onResize.js",
+				"lib/swiper-4.3.5/src/components/core/translate/maxTranslate.js",
+				"images/drawable-xhdpi/充值成功.png",
+				"lib/swiper-4.3.5/src/components/effect-fade/effect-fade.less",
+				"lib/swiper-4.3.5/src/components/core/grab-cursor/index.js",
+				"css/zjy.css",
+				"lib/swiper-4.3.5/demos/010-default.html",
+				"lib/swiper-4.3.5/src/utils/device.js",
+				"images/drawable-xhdpi/wode.png",
+				"lib/swiper-4.3.5/demos/360-parallax.html",
+				"js/register.js",
+				"lib/swiper-4.3.5/CHANGELOG.md",
+				"img/kuan_03.jpg",
+				"lib/swiper-4.3.5/src/components/core/loop/index.js",
+				"images/drawable-xhdpi/ka.png",
+				"js/zepto.js",
+				"lib/swiper-4.3.5/src/utils/dom.js",
+				"images/drawable-xhdpi/tongzhi.png",
+				"images/drawable-xhdpi/kaquan.png",
+				"html/phone.html",
+				"html/freeze2.html",
+				"img/headimg_03.jpg",
+				"lib/swiper-4.3.5/src/components/core/transition/transitionStart.js",
+				"images/drawable-xhdpi/tu2.png",
+				"img/j4_34.jpg",
+				"images/drawable-xhdpi/login.png",
+				"js/mui.min.js",
+				"lib/swiper-4.3.5/src/components/scrollbar/scrollbar.js",
+				"lib/swiper-4.3.5/src/components/core/transition/transitionEnd.js",
+				"images/drawable-xhdpi/切图2/ios/卡劵@2x.png",
+				"img/s3_17.jpg",
+				"img/scfr_40.jpg",
+				"lib/swiper-4.3.5/scripts/banner.js",
+				"lib/swiper-4.3.5/src/components/core/update/index.js",
+				"images/drawable-xhdpi/切图2/ios/卡劵.png",
+				"images/drawable-xhdpi/fanhui.png",
+				"html/reg3.html",
+				"img/zybg_22.jpg",
+				"lib/swiper-4.3.5/src/components/core/check-overflow/index.js",
+				"lib/swiper-4.3.5/src/components/pagination/pagination.js",
+				"images/drawable-xhdpi/xiayige2.png",
+				"html/unfreeze2.html",
+				"lib/swiper-4.3.5/src/components/core/loop/loopDestroy.js",
+				"lib/swiper-4.3.5/src/components/core/translate/minTranslate.js",
+				"css/mui.min.css",
+				"img/sy1.png",
+				"images/drawable-xhdpi/wx.png",
+				"images/drawable-xhdpi/qianbao.png",
+				"lib/swiper-4.3.5/src/components/core/manipulation/removeAllSlides.js",
+				"lib/swiper-4.3.5/src/swiper.js",
+				"lib/swiper-4.3.5/src/components/core/translate/index.js",
+				"lib/swiper-4.3.5/src/components/core/events/onClick.js",
+				"img/banner.png",
+				"images/drawable-xhdpi/NEW.png",
+				"html/code.html",
+				"lib/swiper-4.3.5/demos/210-infinite-loop-with-slides-per-group.html",
+				"lib/swiper-4.3.5/demos/270-mousewheel-control.html",
+				"lib/swiper-4.3.5/src/components/effect-coverflow/effect-coverflow.js",
+				"img/nav_logo_06.jpg",
+				"html/email.html",
+				"images/drawable-xhdpi/wode2.png",
+				"html/freeze3.html",
+				"lib/swiper-4.3.5/src/components/core/slide/slideToLoop.js",
+				"lib/swiper-4.3.5/src/utils/browser.js",
+				"html/BankTopUp.html",
+				"lib/swiper-4.3.5/composer.json",
+				"images/drawable-xhdpi/切图2/android/drawable-xxhdpi/卡劵.png",
+				"img/wde1.png",
+				"lib/swiper-4.3.5/demos/430-slideable-menu.html",
+				"lib/swiper-4.3.5/dist/css/swiper.css",
+				"js/util.js",
+				"images/drawable-xhdpi/sy2.png",
+				"lib/swiper-4.3.5/demos/050-pagination-progress.html",
+				"lib/swiper-4.3.5/src/utils/utils.js",
+				"lib/swiper.css",
+				"lib/swiper-4.3.5/demos/090-vertical.html",
+				"lib/swiper-4.3.5/demos/200-infinite-loop.html",
+				"img/sy2.png",
+				"js/jquery-1.12.2.js",
+				"lib/swiper-4.3.5/dist/css/swiper.min.css",
+				"img/h3_26.jpg",
+				"images/drawable-xhdpi/password.png",
+				"html/tally-book.html",
+				"img/hr_37.jpg",
+				"lib/swiper-4.3.5/bower.json",
+				"lib/swiper-4.3.5/src/modules/resize/resize.less",
+				"css/mui.css",
+				"html/aboutus.html",
+				"images/drawable-xhdpi/touxiang.png",
+				"images/drawable-xhdpi/IDcard.png",
+				"js/echarts.min.js",
+				"lib/swiper-4.3.5/package.js",
+				"lib/swiper-4.3.5/src/modules/browser/browser.js",
+				"lib/swiper-4.3.5/src/modules/support/support.js",
+				"images/drawable-xhdpi/kefu.png",
+				"img/wde2.png",
+				"images/drawable-xhdpi/qianbaotu.png",
+				"lib/swiper-4.3.5/src/components/keyboard/keyboard.js",
+				"lib/swiper-4.3.5/demos/380-responsive-breakpoints.html",
+				"images/drawable-xhdpi/切图2/ios/卡劵@3x.png",
+				"images/drawable-xhdpi/sy1.png",
+				"images/drawable-xhdpi/zijintongzhi.png",
+				"lib/swiper-4.3.5/demos/040-pagination-dynamic.html",
+				"lib/swiper-4.3.5/demos/400-zoom.html",
+				"images/drawable-xhdpi/loginbackground.png",
+				"lib/swiper-4.3.5/src/components/core/images/index.js",
+				"lib/swiper-4.3.5/scripts/build-config.js",
+				"lib/swiper-4.3.5/src/components/core/update/updateSlidesProgress.js",
+				"lib/swiper-4.3.5/scripts/build-js.js",
+				"img/j3_34.jpg",
+				"lib/swiper-4.3.5/src/components/pagination/pagination.less",
+				"lib/swiper-4.3.5/src/components/parallax/parallax.js",
+				"img/h6_28.jpg",
+				"html/reg2.html",
+				"lib/swiper-4.3.5/src/components/core/grab-cursor/unsetGrabCursor.js",
+				"lib/swiper-4.3.5/demos/100-space-between.html",
+				"lib/swiper-4.3.5/src/components/core/manipulation/prependSlide.js",
+				"lib/swiper-4.3.5/src/components/core/loop/loopFix.js",
+				"lib/swiper-4.3.5/src/components/core/update/updateActiveIndex.js",
+				"img/j2_34.jpg",
+				"images/drawable-xhdpi/gerenzhongxinbeijing.png",
+				"lib/swiper-4.3.5/dist/js/swiper.esm.bundle.js",
+				"lib/swiper-4.3.5/src/components/effect-cube/effect-cube.less",
+				"lib/swiper-4.3.5/src/less/mixins.less",
+				"html/top-up.html",
+				"lib/swiper-4.3.5/src/components/core/slide/index.js",
+				"images/drawable-xhdpi/jia(1).png"
+			]
+		}
+	}
+}

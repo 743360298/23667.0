@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" href="../css/head.css">
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/public.js"></script>
+		<script>
+			mui.init();
+		</script>
+		<style type="text/css">
+			body {
+				padding: 0.6rem 0.3rem;
+				background: url('../images/drawable-xhdpi/loginbackground.png') no-repeat;
+				background-size: 100% 100%;
+				width: 100%;
+				height: 100%;
+			}
+			html{
+				background: url('../images/drawable-xhdpi/loginbackground.png') no-repeat;
+				background-size: 100% 100%;
+				width: 100%;
+				height: 100%;
+			}
+			.mui-icon-left-nav:before{
+				color: #fff;
+			}
+			.mui-bar.mui-bar-nav {
+				box-shadow: none;
+			}
+			
+			.regdiv{
+				position: absolute;
+				width: 6.9rem;
+				height: 8.3rem;
+				padding: 0.3rem;
+				background-color: #fff;
+				border-radius: 20px;
+				border: 1px solid #fff;
+				z-index: 9999;
+				left: 50%;
+				transform: translate(-50%);
+			}
+			
+			.regdiv::before,.regdiv::after{
+				width: 88%;
+				height: 30px;
+				background-color: #fff;
+				border-radius: 20px;
+				border: 1px solid #fff;
+				position: absolute;
+				clear: both;
+				display: block;
+				content: "";
+				left: 50%;
+				bottom: -13px;
+				transform: translate(-50%);
+				opacity: 0.7;
+			}
+			.regdiv::after{
+				width: 80%;
+				bottom: -23px;
+				opacity: 0.4;
+			}
+			.regdiv h3{
+				text-align: center;
+				font-size: 0.46rem;
+				font-weight: 500;
+			}
+			.reg{
+				color: #1BA0FF;
+			}
+			.mui-input-group.login{
+				margin-top: 50px;
+			}
+			.mui-input-group.login:before{
+				height: 0;
+			}
+			
+			.mui-input-row{
+				/*border: 1px solid black;*/
+				margin: 15px 0;
+				display: flex;
+				position: relative;
+			}
+			.mui-input-group .mui-input-row:after{
+				left: 0;
+			}
+			.labelimg{
+				width: 0.2rem;
+				height: 0.3rem;
+				line-height: 0.25rem;
+				position: absolute;
+				top: 0;
+				left: 0;
+				transform: translate(200%,70%);
+			}
+			.mui-input-group .mui-input-row{
+				padding: 0 0.3rem;
+			}
+			#phone{
+				border: none;
+				/* border-bottom: 1px solid #eee; */
+				font-size: 0.3rem;
+				line-height: inherit;
+				/* margin-left: 0.2rem; */
+				padding: 0 0.4rem;
+				letter-spacing:2px;
+			}
+			.emailreg{
+				float: left;
+				font-size: 0.24rem;
+				line-height: initial;
+				padding: 0 0.4rem ;
+				font-size: 0.3rem;
+			}
+			.tel{
+				color: #1BA0FF;
+			}
+			.loginbtn{
+				position: relative;
+					top: 280px;
+					width: 5.9rem;
+					height: 0.8rem;
+					line-height: 0.8rem;
+					font-size: 0.3rem;
+					margin: 0 auto;
+					border-radius: 0.8rem;
+					text-align: center;
+					background-image: linear-gradient(55deg,#1aa0ff,#01cdf2);
+					color: #fff;
+					z-index: 999999999999;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav mui-bar-transparent">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		</header>
+		<div class="mui-content">
+			<div class="regdiv">
+				<h3>填写验证码</h3>
+				<form class="mui-input-group login">
+					<div class="mui-input-row">
+						<img class="labelimg" src="../images/drawable-xhdpi/phone.png"/>
+						<input type="text" name="phone" id="phone" placeholder="请输入验证码"/>
+					</div>
+				</form>
+				<span class="emailreg">
+					若无法收到验证码, 请拨打客服电话:<br />
+					<span class="tel">400-888-8888</span>
+				</span>
+			</div>
+			</div>
+			<div class="loginbtn" id="loginbtn">
+				60s
+			</div>
+
+		</div>
+
+		
+		<script type="text/javascript">
+			mui.plusReady(function(){
+				mui(".loginbtn")[0].addEventListener('tap',function(){
+					plus.webview.open('reg3.html', 'reg3', {}, 'slide-in-right', 200);
+				})
+			})
+		</script>
+	</body>
+
+</html>
+<script>
+		var loginbtn = document.getElementById('loginbtn');
+			loginbtn.onclick = function(){
+					window.location.href = "../html/reg3.html";
+			}
+</script>

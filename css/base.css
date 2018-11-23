@@ -1,0 +1,82 @@
+/* 鏍峰紡鍒濆鍖� */
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+form,
+input,
+dl,
+dd {
+	margin: 0;
+	padding: 0;
+}
+input{
+	
+	outline: none;
+}
+ul {
+	list-style: none;
+}
+a {
+	color: #000;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+input {
+	border: 0 none;
+}
+img {
+	border: 0 none;
+	vertical-align: middle;
+}
+body{
+	font-family: "微软雅黑";
+}
+/* 鍏敤鏍峰紡 */
+.w {
+	width: 1000px;
+	margin: 0 auto;
+}
+* {
+	padding: 0;
+	margin: 0;
+}
+
+.head {
+	height: 36px;
+	background-color: #f6f6f6;
+	line-height: 36px;
+	border-bottom: 1px solid #ded6d4;
+}
+
+ul,
+li {
+	list-style: none;
+}
+多分辨率设定rem设定
+html { font-size : 20px; }
+
+/*Note3*/
+@media only screen and (min-width: 360px) {
+html { font-size: 22px !important; }
+}
+
+/*iPhone6*/
+@media only screen and (min-width: 376px) {
+html { font-size: 23px !important; }
+}
+
+/*iPhone6 plus*/
+@media only screen and (min-width: 414px) {
+html { font-size: 25px !important; }
+}
+
+/*big Resolution*/
+@media only screen and (min-width: 641px) {
+html { font-size: 25px !important; }
+}
+

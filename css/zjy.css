@@ -1,0 +1,136 @@
+		.top_title {
+				line-height: 1.94rem;
+				height: 1.94rem;
+				border-bottom: 1px solid #eaeaea;
+				font-size: 0.79rem;
+				color: #333333;
+				text-align: center;
+				position: fixed;
+				top: 0;
+				width: 100%;
+				z-index: 1000;
+				background-color: #fff;
+			}
+			.t_cheng{
+				height: 1.94rem;
+			}
+			.banner_list {
+				height: 7.28rem;
+				position: relative;
+				width: 100%;
+				overflow: hidden;
+			}
+			
+			.banner_con {
+				white-space: nowrap;
+				transform: translateX(-5rem); 
+			}
+			
+			.banner_item {
+				display: inline-block;
+				width: 7rem; 
+			}
+			
+			.banner_item img {
+				width: 100%;
+			}
+			
+			.bg {
+				width: 12rem;
+				margin: 0 0.2rem;
+			}
+			
+			.swiper-slide img {
+				width: 100%;
+			}
+			
+			.swiper-container-free-mode>.swiper-wrapper {
+				-webkit-transition-timing-function: linear;
+				/*之前是ease-out*/
+				-moz-transition-timing-function: linear;
+				-ms-transition-timing-function: linear;
+				-o-transition-timing-function: linear;
+				transition-timing-function: linear;
+				margin: 0 auto;
+			}
+			
+			.slider img {
+				width: 100%;
+			}
+			
+			.slick-slide {
+				transform: translate3d(0, 0, 0)scale(0.8)!important;
+				transition: all 0.4s;
+			}
+			
+			.slick-active {
+				transform: translate3d(0, 0, 0)!important;
+			}
+			
+			.slider_content {
+				padding: 0.8rem 0;
+				background-color: #fff;
+			}
+			
+			.slick-slider {
+				margin-bottom: 0;
+			}
+			body{
+				background-color: #eaeaea;
+			}
+			.tab_item a{
+				color: #999999;
+			}
+			.item_ti{
+	float: left;
+	width: 25%;
+	box-sizing: border-box;
+	margin-bottom: 1.1rem;
+	padding: 0 0.44rem;
+	
+}
+.tiem_yuan{
+	width: 100%;
+	margin-bottom: 0.33rem;
+	border-radius: 50%;
+	overflow: hidden;
+}
+.tiem_yuan img{
+	width: 100%;
+}
+.item_name{
+	font-size: 0.53rem;
+	text-align: center;
+	color: #666666;
+	white-space: nowrap;
+}
+.cheng{
+	height: 2.16rem;
+	
+}
+.tab_bar{
+	position: fixed;
+	width: 100%;
+	height: 2.16rem;
+	background-color: #fff;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.tab_item{
+	font-size: 0.52rem;
+	color: #999999;
+	text-align: center;
+	flex-grow:1;
+}
+.tab_item.cur{
+	color: #1aa0ff;
+}
+.tab_item img{
+	width: 1rem;
+	height: 1rem;
+}
+
+

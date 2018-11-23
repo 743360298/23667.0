@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" href="../css/head.css">
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/public.js"></script>
+		<script>
+			mui.init();
+		</script>
+		<style type="text/css">
+			body {
+				padding: 0.6rem 0.3rem;
+				background: url('../images/drawable-xhdpi/loginbackground.png') no-repeat;
+				background-size: 100% 100%;
+				width: 100%;
+				height: 100%;
+			}
+			html{
+				background: url('../images/drawable-xhdpi/loginbackground.png') no-repeat;
+				background-size: 100% 100%;
+				width: 100%;
+				height: 100%;
+			}
+			
+			.mui-bar.mui-bar-nav {
+				box-shadow: none;
+			}
+			.mui-pull-right{
+				display: block;
+				height:0.88rem;
+				line-height: 0.88rem;
+				position: relative;
+			}
+			.mui-bar{
+				padding:0 0.3rem ;
+			}
+			.help {
+				width: 0.38rem;
+				position: absolute;
+				top: 50%;
+				left: 0;
+				transform: translate(-100%,-50%);
+			}
+			.mui-icon-back:before, .mui-icon-left-nav:before{
+				color: #fff;
+			}
+			.mui-h2, h2{
+				font-size: 0.46rem !important;
+				font-weight: 500;
+			}
+
+			.logindiv::before,.logindiv::after{
+				width: 88%;
+				height: 20px;
+				background-color: #fff;
+				border-radius: 0 0 20px 20px;
+				border: 1px solid #fff;
+				position: absolute;
+				clear: both;
+				display: block;
+				content: "";
+				left: 50%;
+				bottom: -13px;
+				transform: translate(-50%);
+				opacity: 0.7;
+			}
+			.logindiv::after{
+				width: 80%;
+				bottom: -23px;
+				opacity: 0.4;
+			}
+			.logindiv{
+				position: absolute;
+				width: 6.9rem;
+				height: 8.3rem;
+				padding: 0.5rem;
+				background-color: #fff;
+				border-radius: 20px;
+				border: 1px solid #fff;
+				z-index: 9999;
+				left: 50%;
+				transform: translate(-50%);
+			}
+			.loginHello{
+				padding:  0.4rem ;
+			}
+
+			.welcome{
+				display: block;
+				margin-top: 16px;
+				font-size: 0.32rem;
+				color: #767676;
+				line-height: initial;
+				letter-spacing: 2px;
+			}
+			.reg{
+				color: #1BA0FF;
+			}
+			.mui-input-group.login{
+				margin-top: 0.5rem;
+			}
+			.mui-input-group.login:before{
+				height: 0;
+			}
+			
+			.mui-input-row{
+				/*border: 1px solid black;*/
+				margin: 15px 0;
+				display: flex;
+				position: relative;
+			}
+			.mui-input-group .mui-input-row{
+				padding: 0 0.4rem ;
+				line-height: 0.8rem;
+				height: 0.8rem;
+				display: flex;
+				align-content: center;
+			}
+			.mui-input-group .mui-input-row:after{
+				left: 0;
+			}
+			
+			.labelimg{
+				height: 0.3rem;
+				position: absolute;
+				top: 0;
+				left: 0.3rem;
+				transform: translate(50%,70%)
+			}
+			
+			#username{
+				border: none;
+				/* border-bottom: 1px solid #eee; */
+				font-size: 0.32rem;
+				line-height: initial;
+				position: absolute;
+				top: 50%;
+				left: 0.15rem;
+				transform: translate(8%,-50%);
+				letter-spacing: 2px;
+			}
+			#password{
+				border: none;
+				/* border-bottom: 1px solid #eee; */
+				font-size: 0.32rem;
+				line-height: initial;
+				position: absolute;
+				top: 50%;
+				left: 0.15rem;
+				transform: translate(8%,-50%);
+				letter-spacing: 2px;
+			}
+			.loginbtn{
+				/* position: relative; */
+				top: 280px;
+				width: 5.9rem;
+				height: 0.8rem;
+				line-height: 0.8rem;
+				border-radius: 0.8rem;
+				text-align: center;
+				color: #fff;
+				font-size: 0.32rem;
+				margin: 1rem auto 0 ;
+	    	background-image:linear-gradient(55deg,#1aa0ff,#01cdf2);
+				letter-spacing: 2px;
+			}
+			.yanzhengma{
+				/* position: relative; */
+				top: 300px;
+				text-align: center;
+				margin-top: 20px;
+				font-size: 0.28rem;
+			}
+			.yanzhengma h5{
+				font-size: 0.3rem;
+				letter-spacing: 2px;
+			}
+			.mui-content{
+				background-color:  initial;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav mui-bar-transparent">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<a class="mui-pull-right">
+				<img class="help" src="../images/drawable-xhdpi/question.png" />
+			</a>
+		</header>
+		<div class="mui-content">
+			<div class="logindiv">
+				<div class="loginHello">
+						<h2>您好,</h2>
+						<span class="welcome">欢迎来到智慧珠海, 请立即<span class="reg" id="enrollBtn">注册</span></span>
+				</div>
+				<form class="mui-input-group login">
+					<div class="mui-input-row">
+						<img class="labelimg" src="../images/drawable-xhdpi/yonghuming.png"/>
+						<input type="text" name="username" id="username" placeholder="请输入用户名 / 手机号 / 邮箱"/>
+					</div>
+					<div class="mui-input-row">
+						<img class="labelimg" src="../images/drawable-xhdpi/password.png"/>
+						<input type="password" name="password" id="password" placeholder="请输入密码" />
+					</div>
+				</form>
+				<div class="loginbtn">
+					立刻登录
+				</div>
+				<div class="yanzhengma" id="codeLoginBtn">
+					<h5>验证码登录</h5>
+				</div>
+			</div>
+
+		</div>
+	
+
+
+
+
+		<script type="text/javascript">
+			mui.plusReady(function(){
+				mui(".reg")[0].addEventListener('tap',function(){
+					plus.webview.open('reg.html', 'reg', {}, 'slide-in-right', 200);
+				})
+			})
+		</script>
+	</body>
+
+</html>
+<script src='../js/jquery-1.12.2.js'></script>
+<script>
+	
+	var enrollBtn = document.getElementById('enrollBtn');
+	enrollBtn.onclick = function(){
+      window.location.href = "../html/reg.html";
+    }
+
+	var codeLoginBtn = document.getElementById('codeLoginBtn');
+	codeLoginBtn.onclick = function(){
+      window.location.href = "../html/reg2.html";
+    }
+
+		$(function(){
+    init() ;
+    function init(){
+        eventList() ;
+    }
+    function eventList(){
+        // 登录按钮  
+        $("#loginbtn").on("tap",function(){
+            // console.log(123);
+
+            var username_txt = $("[name='username']").val().trim() ;
+            var password_txt = $("[name='password']").val().trim() ;
+
+            if(!$.checkPhone(username_txt)){
+                mui.toast("用户名不合法");
+                return ;
+            }
+            if(password_txt.length<6){
+                mui.toast("密码不合法");
+                return ;
+            }
+
+            // 发送请求到后台 
+            $.post("http://a2366.wanyuwl.net/hyapi/user/login",{
+                username:username_txt,
+                password:password_txt
+            },function(common_param){
+                console.log(common_param);
+
+                if(common_param.meta.status == 200 ){
+                    // 存用户信息到回话存储中
+                    // sessionStorage.setItem("username",JSON.stringify(common_param.data));
+                    $.setUser(common_param.data);
+                    // 执行跳转页面
+                    var page = sessionStorage.getItem("pageName");
+                    if(page){
+                        location.href = page ;
+                    }else{
+                        location.href = "../index.html" ;
+                    }
+                }else{
+                    mui.toast(common_param.meta.msg) ;   
+                }
+            })
+        })  
+    }
+
+})
+</script>

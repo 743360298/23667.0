@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" href="../css/head.css">
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/public.js"></script>
+		<script>
+			mui.init();
+		</script>
+		<style type="text/css">
+			body {
+				padding: 60px 18px;
+				background: url('../images/drawable-xhdpi/loginbackground.png') no-repeat;
+				background-size: 100% 100%;
+				width: 100%;
+				height: 100%;
+			}
+			html{
+				background: url('../images/drawable-xhdpi/loginbackground.png') no-repeat;
+				background-size: 100% 100%;
+				width: 100%;
+				height: 100%;
+			}
+			
+			.mui-bar.mui-bar-nav {
+				box-shadow: none;
+			}
+			.mui-icon-left-nav:before{
+				color: #fff;
+			}
+			
+			.regdiv{
+				position: absolute;
+				width: 90%;
+				height: 400px;
+				padding: 30px;
+				background-color: #fff;
+				border-radius: 20px;
+				border: 1px solid #fff;
+				left: 50%;
+				transform: translate(-50%);
+			}
+			.regdiv::before,.regdiv::after{
+				width: 88%;
+				height: 30px;
+				background-color: #fff;
+				border-radius: 20px;
+				border: 1px solid #fff;
+				position: absolute;
+				clear: both;
+				display: block;
+				content: "";
+				left: 50%;
+				bottom: -13px;
+				transform: translate(-50%);
+				opacity: 0.7;
+			}
+			.regdiv::after{
+				width: 80%;
+				bottom: -23px;
+				opacity: 0.4;
+			}
+			.regdiv h3{
+				text-align: center;
+				font-size: 0.4rem;
+				font-weight: 400;
+			}
+			.reg{
+				color: #1BA0FF;
+			}
+			.mui-input-group.login{
+				margin-top: 50px;
+			}
+			.mui-input-group.login:before{
+				height: 0;
+			}
+			
+			.mui-input-row{
+				/*border: 1px solid black;*/
+				margin: 15px 0;
+				display: flex;
+			}
+			.mui-input-group .mui-input-row:after{
+				left: 0;
+			}
+			.labelimg{
+				width: 20px;
+				height: 25px;
+				line-height: 25px;
+				margin: 5px;
+			}
+			.mui-input-group .mui-input-row{
+				padding: 0 0.4rem ;
+			}
+			
+			#phone{
+				border: none;
+				border-bottom: 1px solid #eee;
+			}
+			.emailreg{
+				float: left;
+				padding: 0 0.3rem ;
+			}
+			.tel{
+				color: #1BA0FF;
+			}
+			.loginbtn{
+				position: relative;
+				top: 280px;
+				width: 280px;
+				height: 40px;
+				line-height: 40px;
+				margin: 0 auto;
+				border-radius: 20px;
+				text-align: center;
+	    	background-image:linear-gradient(55deg,#1aa0ff,#01cdf2);
+	    	color: #fff;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav mui-bar-transparent">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		</header>
+		<div class="regdiv">
+			<h3>设置密码</h3>
+			<form class="mui-input-group login">
+				<div class="mui-input-row">
+					<img class="labelimg" src="../images/drawable-xhdpi/phone.png"/>
+					<input type="password" name="password" id="phone" placeholder="请输入密码"/>
+				</div>
+			</form>
+			<span class="emailreg">
+				密码格式应为6-16位数字,字母或符号,不允许有空格
+			</span>
+		</div>
+		</div>
+		<div class="loginbtn" id="loginbtn">
+			完成并登录
+		</div>
+		
+		<script type="text/javascript">
+			mui.plusReady(function(){
+				
+				mui(".loginbtn")[0].addEventListener('tap',function(){
+					var wvs=plus.webview.all();
+				    for(var i=0;i<wvs.length;i++){
+				    	if(wvs[i].id=="reg" || wvs[i].id=="reg2" || wvs[i].id=="reg3")
+				    	wvs[i].close()
+				    }
+				})
+			})
+		</script>
+	</body>
+
+</html>
+<script src="../js/jquery-1.12.2.js"></script>
+<script src="../js/common.js"></script>
+<script>
+
+	
+	$(function(){
+      init();
+      function init(){
+      eventList() ;
+			}
+			
+			function eventList(){
+				$("#loginbtn") .on("click",function(){
+					var password_txt = $.trim($("[name='password']").val());
+							// if(!$.checkPhone(password_txt)){
+							// 	console.log(password_txt);
+							// 		// 非法 
+							// 		mui.toast("密码不规范");
+							// 		return ;
+							// }
+
+						
+					var apiurl = "/hyapi/user/setpassword";
+
+
+
+					var _uniqueid = Math.random();
+
+					var param = {
+						common_param : JSON.stringify({
+							"password":password_txt,
+							// "unique":_uniqueid
+						}),
+						token: ""
+					}
+					
+					//console.log( param ,baseURL )
+					
+					console.log(apiurl)
+					$.post(apiurl, param, function(res){
+							console.log(res);
+							
+							if(res.errcode== 0 ){
+								console.log('请求成功');
+								mui.toast("验证码已经发到您的手机");
+								window.location.href = "../html/reg2.html";
+									return ; 
+							}else{
+								mui.toast("您的手机号不正确，请重新输入");
+								console.log('您的手机号不正确，请重新输入');
+							}
+						})
+
+				})
+			}
+ })
+
+	
+</script>

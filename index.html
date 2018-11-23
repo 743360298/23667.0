@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+		<title></title>
+		<script src="./js/mui.min.js"></script>
+		<link rel="stylesheet" href="css/base.css" />
+		<!--<link rel="stylesheet" href="css/swiper.css" />-->
+		<link rel="stylesheet" href="css/slick.css" />
+			<link rel="stylesheet" href="css/zjy.css" />
+			<style>
+						.footTab {
+				background-color: #fff;
+				display: flex;
+				bottom: 0;
+				width: 100%;
+				height: 50px;
+				padding: 0;
+				table-layout: fixed;
+				border-top: 0;
+				border-bottom: 0;
+				position: fixed;
+				z-index: 10;
+				right: 0;
+				left: 0;
+			}
+			.footTab a{
+				display: flex;
+				width: 50%;
+				justify-content: center;
+				flex-direction: column;
+				text-align: center;
+				color: #999;
+				/* font-size: 22px; */
+			}
+			.footTab a span{
+				font-size: 14px;
+			}
+			.footTab a img{
+				width: 13%;
+				margin: 0 auto;
+			}
+			.nav-active span{
+				color: #17a5fe;
+			}
+			#footTab{
+				box-shadow:0 !important;
+				-webkit-box-shadow:0 !important;
+			}
+			 .footTab{
+				 padding: 10px 0s;
+			 }
+			.slider_content{
+				height: 6.5rem;
+			}
+			
+			@media only screen and (min-width: 320px) and (max-width: 360px) {
+				.slider_content{
+				height: 7.5rem;
+			}
+				
+			}
+			.op{
+				opacity: 0;
+			}
+			
+			</style>
+	</head>
+	
+	<body >
+		<div class="top_title">
+			首页
+		</div>
+		<div class="t_cheng"></div>
+		<div class="slider_content op" >
+			<div class="slider center">
+				<div>
+					<h3>
+            		<img src="img/banner.png" />
+						
+					</h3></div>
+				<div>
+					<h3>
+            		<img src="img/banner.png" />
+						
+					</h3></div>
+				<div>
+					<h3>
+            		<img src="img/banner.png" />
+						
+					</h3></div>
+			</div>
+
+		</div>
+
+		<div class="list_item">
+			<div class="item_ti">
+				<div class="tiem_yuan">
+					<img src="img/kuan_03.jpg" />
+					
+				</div>
+				<div class="item_name">
+					租房管理
+				</div>
+
+			</div>
+
+			<div class="item_ti">
+				<div class="tiem_yuan">
+					<img src="img/kuan_03.jpg" />
+					
+				</div>
+				<div class="item_name">
+					智能家居管理
+				</div>
+			</div>
+
+			<div class="item_ti">
+				<div class="tiem_yuan">
+					<img src="img/kuan_03.jpg" />
+					
+				</div>
+				<div class="item_name">
+					酒店订房
+				</div>
+			</div>
+
+			<div class="item_ti">
+				<div class="tiem_yuan">
+					<img src="img/kuan_03.jpg" />
+					
+				</div>
+				<div class="item_name">
+					广告推送管理
+				</div>
+			</div>
+
+			<div class="item_ti">
+				<div class="tiem_yuan">
+					<img src="img/kuan_03.jpg" />
+					
+				</div>
+				<div class="item_name">
+					商城管理
+				</div>
+			</div>
+
+			<div class="item_ti">
+				<div class="tiem_yuan">
+					<img src="img/kuan_03.jpg" />
+					
+				</div>
+				<div class="item_name">
+					太阳能管理
+				</div>
+			</div>
+
+			<div class="item_ti">
+				<div class="tiem_yuan">
+					<img src="img/kuan_03.jpg" />
+				</div>
+				<div class="item_name">
+					订餐管理
+				</div>
+			</div>
+
+			<div class="item_ti">
+				<div class="tiem_yuan">
+					<img src="img/kuan_03.jpg" />
+					
+				</div>
+				<div class="item_name">
+					粮食温控管理
+				</div>
+			</div>
+			
+			<div class="item_ti">
+				<div class="tiem_yuan">
+					<img src="img/kuan_03.jpg" />
+				</div>
+				<div class="item_name">
+					便民服务
+				</div>
+			</div>
+			<div class="item_ti">
+				<div class="tiem_yuan">
+					<img src="img/kuan_03.jpg" />
+					
+				</div>
+				<div class="item_name">
+					棋牌游戏
+				</div>
+			</div>
+				<div class="item_ti">
+				<div class="tiem_yuan">
+					<img src="img/kuan_03.jpg" />
+				</div>
+				<div class="item_name">
+					机票预订管理
+				</div>
+			</div>
+		</div>
+		
+		<div class="cheng"></div>
+		<!--
+		<div class="tab_bar">
+			<div class="tab_item cur">
+				<img src="img/sy1.png" />
+				<div>首页</div>
+			</div>
+			<div class="tab_item">
+				<a href="./html/user.html">
+					<img src="img/wde1.png" />
+				<div>我的</div>
+					
+				</a>
+			</div>
+			
+			
+		</div>		-->
+		
+			<nav class=" footTab" id="footTab">
+				<a class="nav-active"  >
+					<img src="img/sy1.png" alt="">
+					<span class="mui-tab-label">首页</span>
+				</a>
+				<a  id="go_w">
+					<img src="img/wde1.png" alt="">
+					<span class="mui-tab-label">我的</span>
+				</a>
+			</nav>
+		
+		
+		
+
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<!--<script type="text/javascript" src="js/swiper.js"></script>-->
+		<script type="text/javascript" src="js/slick.min.js"></script>
+		<script type="text/javascript">
+						$('.center').slick({
+				centerMode: true,
+				centerPadding: '60px',
+				slidesToShow: 3,
+				 play: true,                     //是否开起自动播放功能，提供true,false
+                play_speed: 2000, 
+				responsive: [{
+						breakpoint: 768,
+						settings: {
+							arrows: false,
+							centerMode: true,
+							centerPadding: '35px',
+							slidesToShow: 3
+						}
+					},
+					{
+						breakpoint: 640,
+						settings: {
+							arrows: false,
+							centerMode: true,
+							centerPadding: '50px',
+							slidesToShow: 1
+						}
+					}
+				]
+			});
+			
+			setInterval(function(){
+				
+			$('.center').slickNext()
+				
+			},5000)
+			
+			setTimeout(function(){
+				$('.slider_content').removeClass('op')
+				
+			},200)
+			
+				$("#go_w").on('tap', function() {
+				mui.openWindow({
+					url: './html/user.html',
+					id: 'xy',
+				})
+			})
+
+		</script>
+	</body>
+
+</html>

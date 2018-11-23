@@ -1,0 +1,16 @@
+{
+  "index.html": {
+    "refer": [
+      "html/user.html"
+    ]
+  },
+  "html/user.html": {
+    "resources": [
+      "images/drawable-xhdpi/(7(1).png",
+      "images/drawable-xhdpi/(7(1).png"
+    ],
+    "refer": [
+      "index.html"
+    ]
+  }
+}

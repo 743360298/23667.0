@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/public.js"></script>
+		<script>
+			mui.init();
+		</script>
+		<style type="text/css">
+	    	.mui-bar.mui-bar-nav{
+	    		box-shadow: none;
+	    	}
+	    	.mui-action-back{
+	    		/*color: #fff;*/
+	    	}
+	    	
+	    	.mui-content{
+	    		width: 100%;
+	    	}
+			.mui-table-view{
+				margin-top: 0.2rem !important;
+			}
+
+			.mui-navigate-right:after, .mui-push-right:after{
+				font-size: 0.33rem;
+			}
+			.mui-table-view:before,.mui-table-view::after{
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				height: 0;
+				content: '';
+				-webkit-transform: scaleY(.5);
+				transform: scaleY(.5);
+				background-color: #c8c7cc;
+			}
+			.mui-bar .mui-title{
+				font-weight: 400;
+				color: #fff;
+				font-size: 17px;
+			}
+			.mui-icon-back:before, .mui-icon-left-nav:before{
+				color: #fff;
+			}
+	    	.background{
+				display: block;
+				padding: 0;
+				width: 100%;
+				height: 100%;
+				margin-top: -0.9rem;
+	    	}
+				.user{
+					background: url('../images/drawable-xhdpi/gerenzhongxinbeijing.png') no-repeat;
+					background-size: 100% 100%;
+					width: 100%;
+					height: 4.5rem;
+					margin-top: -0.9rem;
+					position: relative;
+				}
+				.userLogin{
+					padding: 0 0.3rem;
+					display: flex;
+					justify-content: space-between;
+					position: relative;
+					width: 100%;
+					height: 2.5rem;
+					position: absolute;
+					bottom: 0;
+				}
+				.userName{
+					padding: 0 0.1rem;
+					width: 3.5rem;
+					height: initial;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+				}
+	    	.icon{
+					margin: 0 auto;
+	    		width: 1.55rem;
+	    		height: 1.55rem;
+	    		border-radius: 5.5rem;
+	    		border: 0.15rem solid #fff;
+	    		box-shadow: 0px 0px 5px #888888;
+	    	}
+	    	.userName .name{
+					margin-top: 0.2rem;
+					/* width:  4.5rem; */
+					display: flex;
+					justify-content: center;
+					font-size: 0.3rem;
+					line-height: initial;
+					overflow:hidden;
+					text-overflow:ellipsis; 
+					white-space:nowrap;
+	    	}
+				.loginBox{
+					width: 100%;
+					padding: 0.15rem;
+				}
+	    	.loginbtn{
+	    		/* top: 0.6rem; */
+	    		display: flex;
+	    		align-items: center;
+	    		width: 1.58rem;
+	    		height:0.6rem;
+	    		border-radius: 100px;
+	    		background: linear-gradient(-120deg,#01cdf2,#1AA0FF);
+					position: absolute;
+					bottom: 0.2rem;
+					right: 0.4rem;
+	    	}
+	    	.login-img{
+	    		width: 0.4rem;
+	    		height: 0.4rem;
+					margin-left: 0.2rem
+	    	}
+	    	.login-span{
+	    		color: #fff;
+					margin-left: 0.2rem;
+					font-size: 0.3rem;
+	    	}
+	    	.listimg{
+	    		vertical-align: middle;
+				  width: 5%;
+	    	}
+	    	.listspan{
+	    		vertical-align: middle;
+	    		margin-left: 10px;
+					font-size: 0.3rem;
+	    	}
+			.mui-table-view-cell:after{
+				width: 91%;
+			}
+			.mui-table-view-cell{
+				padding: 0.2rem 0.3rem ;
+			}
+			.mui-table-view-cell>a:not(.mui-btn){
+				margin: 0;
+				padding: 0;
+				width: 100%;
+				height: 100%;
+			}
+			.mui-navigate-right:after, .mui-push-right:after{
+				right: 0;
+			}
+			
+
+					.footTab {
+				background-color: #fff;
+				display: flex;
+				bottom: 0;
+				width: 100%;
+				height: 50px;
+				padding: 0;
+				table-layout: fixed;
+				border-top: 0;
+				border-bottom: 0;
+				position: fixed;
+				z-index: 10;
+				right: 0;
+				left: 0;
+			}
+			.footTab a{
+				display: flex;
+				width: 50%;
+				justify-content: center;
+				flex-direction: column;
+				text-align: center;
+				color: #999;
+				/* font-size: 22px; */
+			}
+			.footTab a span{
+				font-size: 14px;
+			}
+			.footTab a img{
+				width: 13%;
+				margin: 0 auto;
+			}
+			.nav-active span{
+				color: #17a5fe;
+			}
+			#footTab{
+				box-shadow:0 !important;
+				-webkit-box-shadow:0 !important;
+			}
+			 .footTab{
+				 padding: 10px 0s;
+			 }
+			.nav-active span{
+				color: #17a5fe;
+				font-size: 0.24rem;
+			}
+			.mui-bar-nav~.mui-content{
+				padding-top: 0.4rem;
+			}
+			.mui-bar .mui-btn-nav.mui-pull-left{
+				margin: 0;
+			}
+
+
+			.head{
+				height: 0.8rem;
+				position: relative;
+			}
+			.mui-bar{
+				height: 0.44rem;
+			}
+			.mui-bar .mui-title{
+				display: block;
+				height: 0.88rem !important;;
+				line-height:  0.88rem !important;;
+				font-size: 0.33rem;
+			}
+			.mui-bar .mui-btn-link{
+				height: 0.88rem;
+				line-height: 0.88rem;
+			}
+			.mui-bar .mui-icon{
+				font-size: 0.33rem;
+			}
+
+    	</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav mui-bar-transparent">
+			<!-- <button class="mui-action-back mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left"><span class="mui-icon mui-icon-left-nav"></span></button> -->
+		    <h1 class="mui-title">个人中心</h1>
+		</header>
+		<!-- <header class="head">
+				<h1 class="mui-title">个人中心</h1>
+			</header> -->
+		<div class="mui-content">
+			<div class="user">
+				<div class="userLogin">
+						<div class="userName">
+								<img class="icon" src="../images/drawable-xhdpi/touxiang.png"/>
+								<div class="name">请登录</div>
+						</div>
+						<div class="loginBox">
+								<span class="loginbtn" id="loginbtn">
+								<img class="login-img" src="../images/drawable-xhdpi/yhhu1.png"/>
+								<span class="login-span">登入</span>
+						</div>
+				</div>
+		    	<!-- <img class="background" src="../images/drawable-xhdpi/gerenzhongxinbeijing.png"/> -->
+		    	
+					
+		    </div>
+		    <div class="lists">
+		    	<ul class="mui-table-view">
+		            <li class="mui-table-view-cell">
+		                <a class="mui-navigate-right" href="settings.html">
+		                	<img class="listimg" src="../images/drawable-xhdpi/setting.png"/>
+		                    <span class="listspan">个人设置</span>
+		                </a>
+		            </li>
+		            <li class="mui-table-view-cell">
+		                <a class="mui-navigate-right" href="personal.html">
+		                	<img class="listimg" src="../images/drawable-xhdpi/IDcard.png"/>
+		                    <span class="listspan">身份认证</span>
+		                </a>
+		            </li>
+		            <li class="mui-table-view-cell">
+		                <a class="mui-navigate-right" href="../html/wallet.html">
+		                	<img class="listimg" src="../images/drawable-xhdpi/qianbao.png"/>
+		                    <span class="listspan">钱包</span>
+		                </a>
+		            </li>
+		            <li class="mui-table-view-cell">
+		                <a class="mui-navigate-right" href="../html/notice.html">
+		                	<img class="listimg" src="../images/drawable-xhdpi/tongzhi.png"/>
+		                    <span class="listspan">通知</span>
+		                </a>
+		            </li>
+		        </ul>
+		    </div>
+		</div>
+
+
+		<nav class="  footTab">
+				<a class=" footTabnav  "  id="go_w">
+					<img src="../images/drawable-xhdpi/shouye.png" alt="">
+					<span class="mui-tab-label">首页</span>
+				</a>
+				<a class="footTabnav nav-active" href="">
+					<img src="../images/drawable-xhdpi/wde2.png" alt="">
+					<span class="mui-tab-label">我的</span>
+				</a>
+			</nav>
+		
+		<script type="text/javascript">
+			mui.plusReady(function(){
+				mui(".name")[0].addEventListener('tap',function(){
+					plus.webview.open('login.html', 'login', {}, 'slide-in-right', 200);
+				})
+			})
+		</script>
+	</body>
+
+</html>
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script >
+    var loginbtn = document.getElementById('loginbtn');
+    loginbtn.onclick = function(){
+      window.location.href = "../html/login.html";
+    }
+    
+    	$("#go_w").on('tap', function() {
+				mui.back();
+			})
+    
+</script>

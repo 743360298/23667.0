@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" href="../css/head.css">
+		<script src="../js/public.js"></script>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/jquery-1.12.2.js"></script>
+		<script>
+			mui.init();
+		</script>
+		<style type="text/css">
+		body{
+			background-color: #eaeaea;
+		}
+			.head-img{
+				/* padding: 0.1rem 0 ;  */
+			}
+			#header{
+				z-index: 999999999999;
+			}
+			#serviceBtn{
+				padding-right: 0.15rem ;
+				display: flex;
+				align-items: center;
+				justify-content: flex-end;
+				height: 100%;
+			}
+			#serviceBtn img{
+				width: 0.35rem;
+				height: 0.35rem;
+				/* height: 100%; */
+				display: flex;
+				align-items: center;
+				justify-content: flex-end;
+			}
+			.mui-content{
+				/* padding: 0 10px; */
+			}
+			.approve{
+				height: 0.8rem;
+				padding: 0 0.2rem;
+				width: 100%;
+				display: flex;
+				align-items: center;
+				color: #666 ;
+				background-color: #eaeaea;
+			}
+			.approve span{
+				font-size: 0.24rem;
+			}
+			.radio-box{
+				display: flex;
+				justify-content: space-around;
+				height: 1.5rem;
+				background-color: #fff;
+				position: relative;
+			}
+			.radioImg2{
+				display: block;
+				height: 0.54rem;
+				width: 0.54rem;
+				background: url('../images/drawable-xhdpi/renzhengxuanze2.png') no-repeat;
+				background-size: 100% 100% ;
+				z-index: 99;
+				margin:0 10px;
+			}
+			.radioImg{
+				display: block;
+				height: 0.54rem;
+				width: 0.54rem;
+				background: url('../images/drawable-xhdpi/renzhengxuanze.png') no-repeat;
+				background-size: 100% 100% ;
+				z-index: 99;
+				margin:0 10px;
+				border: 0;
+			}
+			.radio-box .personal,.radio-box .enterprise{
+				height: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-size: 0.3rem;
+			}
+			.mui-input-group .mui-input-row{
+        width: 100%;
+        height: 0.5rem;
+        position: relative;
+      }
+      .mui-input-group:before,.mui-input-group::after,.mui-input-group .mui-input-row:after{
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 0px;
+        content: '';
+        -webkit-transform: scaleY(.5);
+        transform: scaleY(.5);
+        background-color: #c8c7cc;
+      }
+			.mui-input-row label{
+				padding: 0 0.15rem ;
+				font-size: 0.3rem;
+				line-height: 0.8rem;
+				/* width: 100%; */
+			}
+			.user-info{
+				margin-top: 0.1rem;
+				height: 0.8rem;
+				line-height: 0.8rem;
+				font-size: 0.2rem;
+				padding-right: 0.15rem;
+				/* padding: 0.1rem 0; */
+				background-color: #fff;
+			}
+			.user-info .mui-input-row{
+				height: 100%;
+				background-color: #fff;
+			}
+			.user-info .mui-input-clear{
+				font-size: 18px;
+			}
+			.infoBtn{
+				position: absolute;
+				top: 50%;
+				transform: translateY(15%);
+			}
+			#userName,#enterpriseName{
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				color: #666;
+				font-size: 0.3rem;
+			}
+			.choose{
+		    position: absolute;
+				top: 50%;
+				right: 0;
+				transform: translateY(-50%);
+			}
+			#choose,#gender{
+				color: #666;
+				font-size: 0.3rem;
+			}
+			.mui-icon-arrowright:before{
+				color: #666;
+				display: flex;
+				line-height: 0.8rem;
+				justify-content: center;
+				align-items: center;
+			}
+			.encryption{
+			  height: 0.8rem;
+				line-height: 0.8rem;
+				padding: 0 0.15rem;
+				color: #666;
+				font-size: 0.3rem;
+			}
+			
+			.idNum{
+				padding: 0;
+				margin-top: 0;
+				font-size: 0.3rem;
+			}
+			#idNum,#IdNo{
+				font-size: 0.3rem;
+			}
+			.idNum .mui-input-row {
+				padding:  5.5px 0;
+			}
+			.idNum .mui-input-row .mui-input-clear{
+				padding: 10px 20px 10px 15px;
+			}
+			#cancelBtn{
+				position: absolute;
+				top: 50% ;
+				transform: translateY(-30%);
+				margin-right: 10px;
+			}
+			.positive{
+				padding: 0.15rem;
+				display: flex;
+				background-color: #fff;
+				margin-bottom: 0.1rem;
+			}
+			.positive .positive-left{
+				width: 50%;
+				height: 2.2rem;
+				border: #999 dashed 0.02rem;
+				border-radius: 10px;
+				display: flex;
+				flex-direction: column;
+				position: relative;
+			}
+			.positive .positive-left .taking-pictures img{
+				/* text-align: center; */
+				display: block;
+				width: 0.5rem;
+				height: 0.5rem;
+				margin: 0 auto;
+			}
+			.taking-pictures{
+				line-height: inherit;
+				display: flex;
+				flex-direction: column;
+				width: 100%;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%)
+			}
+			.taking-pictures span{
+				display: block;
+				width: 100%;
+				margin-top: 0.2rem;
+				text-align: center;
+				color:#999;
+				font-size: 0.3rem;
+			}
+			.positive .positive-right{
+				font-size: 0.3rem;
+				line-height: initial;
+				width: 50%;
+				padding: 0 0  0 10px;
+				color: #666;
+				/* height: 220px; */
+			}
+			#certificationBtn{
+				background-image: linear-gradient(to top right,#1aa0ff,#01cdf2);
+				border: 0;
+				/* height: 0.8rem; */
+				/* line-height: 0.8rem; */
+				border-radius: 0;
+				font-size: 0.36rem;
+			}
+			.mui-btn-block{
+				margin-bottom: 0px;
+			}
+			/* .personalTab{
+				display: none;
+			} */
+			#contractorBtn label{
+				width: 50%;
+			}
+			.personalTab2{
+				display: block;
+			}
+			.disposeBox{
+				padding: 0 15px;
+			}
+			.disposeTitle{
+				height: 0.8rem;
+				padding: 0.1rem 0;
+				display: flex;
+				font-size: 0.3rem;
+				justify-content: space-between;
+				align-items: center;
+			}
+			.disposeTitle span:last-child{
+				position: relative;
+				line-height:0.8rem;
+			}
+			.disposeTitle>div{
+				position: relative;
+			}
+			.disposeTitle>div img{
+				width: 0.35rem;
+				height: 0.35rem;
+				position: absolute;
+				top:50%;
+				left: 50%;
+				transform: translate(-310%,-50%)
+			}
+			/* .disposeTitle span:last-child::before{
+				clear: both;
+				display: block;
+				content: "";
+				height: 0.3rem;
+				width: 0.3rem;
+				background: url('../images/drawable-xhdpi/question.png') no-repeat;
+				background-size: 100% 100% ;
+				position: absolute;
+				left: -40%;
+				top: 0;
+				transform: translate(0,-22%)
+			} */
+			.dispose-photo{
+				display: flex;
+				width: 100%;
+			}
+			.dispose-photo .add-photo{
+				padding: 30px;
+				width: 33.33%;
+				height: 3.3rem;
+				background-color: pink;
+				border: 0.02rem dashed #999;
+				border-radius: 8px ;
+				width: 50%;
+				background-color: #fff;
+				position: relative;
+				margin-left: 10px;
+			}
+			.dispose-photo .add-photo:first-child{
+				margin-left: 0;
+			}
+			.dispose-photo .add-photo img{
+				position: absolute;
+				width: 35%;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50% , -50%);
+			}
+			.disposeTxt{
+				padding: 10px 0 ;
+			}
+			.disposeTxt p{
+				margin-bottom:  0 ;
+				color: #666;
+				font-size: 0.24rem;
+				line-height: initial;
+			}
+    </style>
+	</head>
+
+	<body>
+			<header id="header" class="mui-bar mui-bar-nav">
+				<h1 class="mui-title">身份认证</h1>
+				<button class="mui-action-back mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left"><span class="mui-icon mui-icon-left-nav"></span></button>
+				<!-- <a class="mui-pull-right head-img" id="serviceBtn">
+					<img class="" src="../images/drawable-xhdpi/kefu.png" alt="">
+				</a> -->
+				<a id="serviceBtn" class=" mui-pull-right">
+						<img class="" src="../images/drawable-xhdpi/kefu.png" alt="">
+				</a>
+			</header>
+
+			<div class="mui-content">
+				<div class="approve">
+					<span>您没有进行身份认证，认证通过后才能签约</span>
+				</div>
+			</div>
+
+			<div class="radio-box">
+				<div class="personal">
+					<span class="radioImg2 radioImg"></span>
+					<label>个人认证</label>
+				</div> 
+				<div class="enterprise">
+					<span class="radioImg2 "></span>
+					<label>企业认证</label>
+				</div> 
+			</div>
+
+			<div class="personalTab1 ">
+					<form class="mui-input-group user-info">
+							<div class="mui-input-row">
+									<label>姓名</label>
+							<input type="text" class="mui-input-clear" id="userName" placeholder="请输入用户名">
+							<span class="mui-icon mui-icon-clear mui-hidden infoBtn"></span>
+							</div>
+					</form>
+		
+					<div class="mui-input-group user-info">
+							<div class="mui-input-row" id="chooseBtn">
+									<label>证件类型</label>
+									<div class="choose mui-pull-right">
+											<span id="choose">请选择</span>
+											<span class=" mui-pull-right mui-icon mui-icon-arrowright"></span>
+									</div>
+							</div>
+					</div>
+		
+					<div class="mui-input-group user-info">
+							<div class="mui-input-row" id="genderBtn">
+									<label>性别</label>
+									<div class="choose mui-pull-right">
+											<span id="gender">请选择</span>
+											<span class=" mui-pull-right mui-icon mui-icon-arrowright"></span>
+									</div>
+							</div>
+					</div>
+		
+					<div class="encryption">
+						<span>证件号(将加密处理)</span>
+					</div>
+		
+					<form class="mui-input-group user-info idNum">
+							<div class="mui-input-row">
+									<input type="text" class="mui-input-clear" id="idNum" placeholder="请填写并确认证件号">
+									<span class="mui-icon mui-icon-clear mui-hidden" id="cancelBtn"></span>
+							</div>
+					</form>
+		
+					<div class="encryption">
+						<span>证件照(将加密处理)</span>
+					</div>
+		
+					<div class="positive">
+						<div class="positive-left">
+							<div class="taking-pictures"> 
+									<img src="../images/drawable-xhdpi/jia(1).png" alt="">
+									<span>身份证正面</span>
+							</div>
+						</div>
+						<div class="positive-right">
+							<span>请保持照片中身份证显示完整字体清晰可见，亮度均可</span>
+						</div>
+					</div>
+					<div class="positive contrary">
+						<div class="positive-left">
+							<div class="taking-pictures">
+								<img src="../images/drawable-xhdpi/jia(1).png" alt="">
+								<span>身份证反面</span>
+							</div>
+						</div>
+						<div class="positive-right">
+							<span>请保持照片中身份证显示完整字体清晰可见，亮度均可</span>
+						</div>
+					</div>
+			</div>
+			<div class="personalTab2 ">
+					<form class="mui-input-group user-info">
+							<div class="mui-input-row">
+									<label>企业名称</label>
+							<input type="text" class="mui-input-clear" id="enterpriseName" placeholder="请输入企业名称">
+							<span class="mui-icon mui-icon-clear mui-hidden infoBtn"></span>
+							</div>
+					</form>
+
+					<div class="mui-input-group user-info">
+							<div class="mui-input-row" id="contractorBtn">
+									<label>签约人类型</label>
+									<div class="choose mui-pull-right">
+											<span id="choose">请选择</span>
+											<span class=" mui-pull-right mui-icon mui-icon-arrowright"></span>
+									</div>
+							</div>
+					</div>
+
+					<div class="mui-input-group user-info">
+							<div class="mui-input-row" id="natureBtn">
+									<label>企业性质</label>
+									<div class="choose mui-pull-right">
+											<span id="gender">机构(法院)</span>
+											<span class=" mui-pull-right mui-icon mui-icon-arrowright"></span>
+									</div>
+							</div>
+					</div>
+
+					<div class="encryption">
+						<span>组织机构代码证号码(将加密处理)</span>
+					</div>
+
+					<form class="mui-input-group user-info idNum">
+							<div class="mui-input-row">
+									<input type="text" class="mui-input-clear" id="IdNo" placeholder="请填写并确认证件号">
+									<span class="mui-icon mui-icon-clear mui-hidden" id="cancelBtn"></span>
+							</div>
+					</form>
+
+					<div class="disposeBox">
+					  <div class="disposeTitle">
+							<span>证件号(将加密处理)</span>
+							<div>
+									<img src="../images/drawable-xhdpi/question.png" alt="">
+									<span>审核标准</span>
+							</div>
+						</div>
+
+						<div class="dispose-photo">
+							<div class="add-photo">
+								<img src="../images/drawable-xhdpi/jia(1).png" alt="">
+							</div>
+							<div class="add-photo"></div>
+							<div class="add-photo"></div>
+						</div>
+						<div class="disposeTxt">
+								<p>*法人本人签约：请上传组织机构代码证复印件加盖公章照片，法人本人手持身份证拍照照片，共两张。</p>
+								<p>*代理人签约上传以下三张照片：1) 盖有公章的组织机构代码证复印件照片; 2) 联系客服下载并打印授权委托书模板，书写空白处后，加盖公章的照片证明； 3) 代理人手持身份证照片。*24小时人工审核，若需要加急审核，请在右上角类型客服。</p>
+						</div>
+
+					</div>
+					
+
+			</div>
+
+			<button type="button" id="certificationBtn" class="mui-btn mui-btn-primary mui-btn-block">去认证</button>
+
+
+
+		<script type="text/javascript">
+			mui.plusReady(function(){
+				mui(".name")[0].addEventListener('tap',function(){
+					plus.webview.open('login.html', 'login', {}, 'slide-in-right', 200);
+				})
+			})
+		</script>
+	</body>
+</html>
+<script>
+	window.onload = function () {
+		serviceBtn();
+		radioBtn();
+		genderBtn();
+	}
+	    // 客服
+			function serviceBtn() {
+					$('#serviceBtn').click(function () {
+							mui.confirm("是否拨打 400-888-999", "拨打电话", ["取消", "确定"], function (etype) {
+								if(etype.index == 0 ){
+										// 未被选中的li标签数组
+										console.log("取消");
+								} else if(etype.index == 1){
+										console.log("确定");
+								}
+					  	})	
+					})
+			}
+			
+			// 选择性别
+			function genderBtn() {
+				$('#genderBtn').click(function () {
+							mui.confirm("性别", "请选择", ["男", "女"], function (etype) {
+								if(etype.index == 0 ){
+										// 未被选中的li标签数组
+										console.log("男");
+								} else if(etype.index == 1){
+										console.log("女");
+								}
+					  	})	
+					})
+			}
+
+		// 单选框
+		function radioBtn() {
+				$(function () {
+					
+						$(".radioImg2:eq(0)").on("click",function(){
+							$(this).addClass('radioImg')
+							$(".radioImg2:eq(1)").removeClass('radioImg')
+							// $(".personalTab").removeClass('personalTab2')
+							$('.personalTab1').show()
+							$('.personalTab2').hide()
+
+						})
+						$(".radioImg2:eq(1)").on("click",function(){
+							$(this).addClass('radioImg')
+							$(".radioImg2:eq(0)").removeClass('radioImg')
+							$('.personalTab1').hide()
+							$('.personalTab2').show()
+							
+							// $(".personalTab").removeClass('personalTab2')
+						})
+				})
+		}
+
+</script>
