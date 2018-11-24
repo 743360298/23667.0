@@ -349,26 +349,26 @@
 		// ShutDownBtn();
   }
 
-    // 点击下一步弹出弹框
-     $("#nextstepBtn").on("click",function(){
+ // 点击下一步弹出弹框
+ $("#nextstepBtn").on("click",function(){
       $(".bouncedBox").addClass('top0')
         // $(".bouncedBox").slideDown(300)
-        $(".mui-active").fadeIn(300)
+        $(".mui-active").show()
     })
 
     // 点击关闭隐藏弹框
      $("#ShutDownBtn").on("click",function(){
-      $(".bouncedBox").removeClass('top0')
+        $(".bouncedBox").removeClass('top0')
         // $(".bouncedBox").slideUp(300)
-        $(".mui-active").fadeOut(300)
+        $(".mui-active").hide()
     })
       
     // 点击遮罩层隐藏弹框
      $(".mui-active").on("click",function(){
-      $(".bouncedBox").removeClass('top0')
-        $(".mui-active").fadeOut(300)
+        $(".bouncedBox").removeClass('top0')
+        $(".mui-active").hide()
+        $(".bouncedPwd").fadeOut(300)
     })
-
 
 
 

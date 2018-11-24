@@ -16,7 +16,7 @@
 		</script>
 		<style type="text/css">
 			body {
-				padding: 60px 18px;
+				padding: 0.6rem 0.3rem;
 				background: url('../images/drawable-xhdpi/loginbackground.png') no-repeat;
 				background-size: 100% 100%;
 				width: 100%;
@@ -35,18 +35,23 @@
 			.mui-icon-left-nav:before{
 				color: #fff;
 			}
+			.mui-bar{
+				padding: 0 0.3rem;
+			}
 			
 			.regdiv{
 				position: absolute;
-				width: 90%;
-				height: 400px;
-				padding: 30px;
+				width: 6.9rem;
+				height: 8.3rem;
+				padding:0.8rem 0.3rem 0;
 				background-color: #fff;
 				border-radius: 20px;
 				border: 1px solid #fff;
+				z-index: 9999;
 				left: 50%;
 				transform: translate(-50%);
 			}
+			
 			.regdiv::before,.regdiv::after{
 				width: 88%;
 				height: 30px;
@@ -76,7 +81,7 @@
 				color: #1BA0FF;
 			}
 			.mui-input-group.login{
-				margin-top: 50px;
+				margin-top: 1.3rem;
 			}
 			.mui-input-group.login:before{
 				height: 0;
@@ -91,37 +96,61 @@
 				left: 0;
 			}
 			.labelimg{
-				width: 20px;
-				height: 25px;
-				line-height: 25px;
-				margin: 5px;
+				width: 0.2rem;
+				height: 0.3rem;
+				line-height: 0.25rem;
+				position: absolute;
+				top: 0;
+				left: 0;
+				transform: translate(200%,70%);
 			}
 			.mui-input-group .mui-input-row{
 				padding: 0 0.4rem ;
 			}
+			.mui-input-group .mui-input-row {
+					padding: 0 0.4rem;
+					line-height: 0.8rem;
+					height: 0.8rem;
+					display: flex;
+					align-content: center;
+			}
 			
 			#phone{
 				border: none;
-				border-bottom: 1px solid #eee;
+				/* border-bottom: 1px solid #eee; */
+				font-size: 0.32rem;
+				line-height: initial;
+				position: absolute;
+				top: 50%;
+				left: 0.15rem;
+				transform: translate(8%,-50%);
+				letter-spacing: 2px;
 			}
 			.emailreg{
 				float: left;
-				padding: 0 0.3rem ;
+				font-size: 0.24rem;
+				line-height: initial;
+				padding: 0 0.4rem ;
+				font-size: 0.3rem;
 			}
 			.tel{
 				color: #1BA0FF;
 			}
 			.loginbtn{
 				position: relative;
-				top: 280px;
-				width: 280px;
-				height: 40px;
-				line-height: 40px;
-				margin: 0 auto;
-				border-radius: 20px;
+				top: 4.8rem;
+				width: 5.9rem;
+				height: 0.8rem;
+				line-height: 0.8rem;
+				font-size: 0.3rem;
+				margin: 1rem auto 0;
+				border-radius: 0.8rem;
 				text-align: center;
-	    	background-image:linear-gradient(55deg,#1aa0ff,#01cdf2);
-	    	color: #fff;
+				/* background-image: linear-gradient(55deg,#1aa0ff,#01cdf2); */
+				background: url(../images/drawable-xhdpi/yuanjiao.png);
+				background-size: 100% 100%;
+				color: #fff;
+				z-index: 999999999999;
 			}
 		</style>
 	</head>
@@ -130,21 +159,25 @@
 		<header class="mui-bar mui-bar-nav mui-bar-transparent">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 		</header>
-		<div class="regdiv">
-			<h3>设置密码</h3>
-			<form class="mui-input-group login">
-				<div class="mui-input-row">
-					<img class="labelimg" src="../images/drawable-xhdpi/phone.png"/>
-					<input type="password" name="password" id="phone" placeholder="请输入密码"/>
-				</div>
-			</form>
-			<span class="emailreg">
-				密码格式应为6-16位数字,字母或符号,不允许有空格
-			</span>
-		</div>
-		</div>
-		<div class="loginbtn" id="loginbtn">
-			完成并登录
+
+		<div class="mui-content">
+
+			<div class="regdiv">
+				<h3>设置密码</h3>
+				<form class="mui-input-group login">
+					<div class="mui-input-row">
+						<img class="labelimg" src="../images/drawable-xhdpi/phone.png"/>
+						<input type="password" name="password" id="phone" placeholder="请输入密码"/>
+					</div>
+				</form>
+				<span class="emailreg">
+					密码格式应为6-16位数字,字母或符号,不允许有空格
+				</span>
+			</div>
+			</div>
+			<div class="loginbtn" id="loginbtn">
+				完成并登录
+			</div>
 		</div>
 		
 		<script type="text/javascript">

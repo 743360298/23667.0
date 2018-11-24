@@ -1,4 +1,5 @@
-var baseURL = "http://a2366.wanyuwl.net/" ;
+var baseURL = "http://www.2366.net/" ;
+// var baseURL = "http://a2366.wanyuwl.net/" ;
 
 $(function(){
     // 基本路径 

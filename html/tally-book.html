@@ -69,9 +69,9 @@
 
       }
       .monthList li{
-        margin:-1px -3px;
+        /* margin:-1px -3px; */
         display:inline-block;
-        padding: 0.3rem 0.15rem;
+        padding: 0.3rem 0.3rem;
         text-align: center;
         line-height: initial;
         font-family: '微软雅黑';
@@ -88,13 +88,15 @@
         padding: 15px;
       }
       .expense-echarts{
-        padding:0.2rem 0.15rem;
+        padding:0.4rem 0.3rem;
         /* padding: 30px; */
         background-color: #fff;
         border-radius: 10px;
       }
       .expense-year{
+        width: 1.2rem;
         display: flex;
+        position: relative;
         /* padding: 20px 15px ; */
         
       }
@@ -115,7 +117,8 @@
       }
       .income,.spending,.surplus{
         position: relative;
-        font-size: 0.30rem;
+        font-size: 0.28rem;
+        line-height: initial;
         display: flex;
         justify-content: space-between;
       }
@@ -125,8 +128,8 @@
         clear: both;
         display: block;
         content: "";
-        height: 0.15rem;
-        width: 0.15rem;
+        height: 0.11rem;
+        width: 0.11rem;
         background-color: #1aa0ff;
         border-radius: 50%;
         position: absolute;
@@ -148,15 +151,17 @@
         line-height: initial;
       }
       .expense-list li{
-        padding: 2px 15px;
+        padding: 0.02rem 0.22rem;
       }
       .expense-list li>span:last-child{
         color: #1aa0ff;
-        font-size: 0.28rem;
+        font-size: 0.26rem;
+        line-height: initial;
       }
       .expense-down{
         overflow: hidden;
         display: flex;
+        padding: 0.3rem 0 0;
       }
       .expense-echarts .expense-left,.expense-echarts .expense-right{
         width: 50%;
@@ -197,7 +202,7 @@
         transform: translate(-50% ,-50%)
       }
       .expenseTabBox{
-        padding: 0 0.15rem ;
+        padding: 0 0.3rem ;
         background-color: #fff;
       }
       .main{
@@ -211,20 +216,44 @@
       }
 
       .expenseList1 , .expenseList2{
-        font-size: 0.28rem;
+        font-size: 0.3rem;
         display: flex;
         justify-content: space-between;
       }
+      .expenseList2{
+        margin-top: 0.25rem;
+      }
       .expenseList1 span, .expenseList2 span{
-        margin-top: 0.1rem;
+        /* margin-top: 0.1rem; */
         line-height: initial;
+        font-size: 0.3rem;
       }
       .expenseList2 span{
         color: #666;
       }
       .main ul li{
-        padding-bottom: 10px;
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
         border-bottom: 0.5px solid #eaeaea;
+      }
+
+      /* 年份弹框 */
+      .yearBounced{
+        width: 1.4rem;
+        background-color: #fff;
+        box-shadow: 0 0 5px #ccc;
+        border-radius: 5px;
+        position: absolute;
+        z-index: 99999;
+        display: none
+      }
+      .yearBounced ul li{
+        text-align: center;
+        padding: 0.08rem 0;
+        color: #999;
+        border-bottom: 1px solid #eaeaea;
+      }
+      .yearBounced ul li:hover{
       }
     </style>
 	</head>
@@ -255,8 +284,16 @@
         <div class="expenseBox">
           <div class="expense-echarts">
             <div class="expense-year">
-              <span>2018</span>
+              <span id="year_">2018</span>
               <span class="mui-icon mui-icon-arrowright"></span>
+            </div>
+
+            <!-- 切换年份弹框 -->
+            <div class="yearBounced">
+              <ul>
+                <li>2018</li>
+                <li>2017</li>
+              </ul>
             </div>
 
             <div class="expense-down">
@@ -372,7 +409,7 @@
             </div>            
 
            </div>
-      
+           
       </div>
 
 		<script type="text/javascript">
@@ -398,6 +435,21 @@
         })
     })
 
+      
+
+     // 切换年份
+     $(function () {
+      $('.expense-year').on('click',function () {
+        console.log('0000');
+        $('.yearBounced').show();
+      })
+      $('.yearBounced li').click(function(){ 
+          $('#year_').html($(this).html())
+          $('.yearBounced').hide()
+
+       })
+    })
+
 
   // 全部收入支出tab
     $(function () {
@@ -413,6 +465,9 @@
 
       })
     })
+
+   
+
 
 
 
@@ -432,6 +487,7 @@
           left: 'left',
           // data: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
       },
+      color:['#0bb6ee','#0888f3','#00f3e7'],
       series : [
           {
               name: '访问来源',
@@ -443,13 +499,18 @@
                   {value:35, name:''},
                   {value:10, name:''},
               ],
-              itemStyle: {
-                  emphasis: {
-                      // shadowBlur: 10,
-                      // shadowOffsetX: 0,
-                      // shadowColor: 'rgba(0, 0, 0, 0.5)'
-                  }
-              }
+              itemStyle : {
+                    normal : {
+                      label : {
+                        show : false
+                      },
+                      labelLine : {
+                        show : false
+                      }
+                    },
+
+                  },
+              
           }
       ]
   };

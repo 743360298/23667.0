@@ -168,7 +168,9 @@
 				color: #fff;
 				font-size: 0.32rem;
 				margin: 1rem auto 0 ;
-	    	background-image:linear-gradient(55deg,#1aa0ff,#01cdf2);
+	    	/* background-image:linear-gradient(55deg,#1aa0ff,#01cdf2); */
+	    	background:url('../images/drawable-xhdpi/yuanjiao.png');
+				background-size: 100% 100%;
 				letter-spacing: 2px;
 			}
 			.yanzhengma{
@@ -211,7 +213,7 @@
 						<input type="password" name="password" id="password" placeholder="请输入密码" />
 					</div>
 				</form>
-				<div class="loginbtn">
+				<div class="loginbtn" id="loginbtn">
 					立刻登录
 				</div>
 				<div class="yanzhengma" id="codeLoginBtn">
@@ -235,7 +237,8 @@
 	</body>
 
 </html>
-<script src='../js/jquery-1.12.2.js'></script>
+<script src="../js/jquery-1.12.2.js"></script>
+<script src="../js/common.js"></script>
 <script>
 	
 	var enrollBtn = document.getElementById('enrollBtn');
@@ -255,7 +258,7 @@
     }
     function eventList(){
         // 登录按钮  
-        $("#loginbtn").on("tap",function(){
+        $("#loginbtn").on("click",function(){
             // console.log(123);
 
             var username_txt = $("[name='username']").val().trim() ;
@@ -270,14 +273,29 @@
                 return ;
             }
 
-            // 发送请求到后台 
-            $.post("http://a2366.wanyuwl.net/hyapi/user/login",{
-                username:username_txt,
-                password:password_txt
-            },function(common_param){
-                console.log(common_param);
+						// 发送请求到后台 
+						var apiurl = "/hyapi/user/login";
+					
+							var _uniqueid = Math.random();
 
-                if(common_param.meta.status == 200 ){
+							var param = {
+								common_param : JSON.stringify({
+									"email":email_txt,
+									"unique":_uniqueid
+								}),
+								token: ""
+							}
+					
+					//console.log( param ,baseURL )
+					
+					console.log(apiurl)
+
+            $.post(apiurl, param, function(res){
+	
+
+									console.log(res);
+
+				      	if(res.errcode == 0 ){
                     // 存用户信息到回话存储中
                     // sessionStorage.setItem("username",JSON.stringify(common_param.data));
                     $.setUser(common_param.data);
@@ -286,7 +304,9 @@
                     if(page){
                         location.href = page ;
                     }else{
-                        location.href = "../index.html" ;
+											console.log('跳转');
+											
+                        // location.href = "../index.html" ;
                     }
                 }else{
                     mui.toast(common_param.meta.msg) ;   

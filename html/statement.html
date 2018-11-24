@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html>
 
@@ -19,7 +20,12 @@
 		</script>
     <style type="text/css">
       html{
-        background-color: #eaeaea;
+        background-color: #fff;
+      }
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
 			.head-img{
 				padding: 0.1rem 0 ; 
@@ -33,173 +39,88 @@
 				/* padding: 0 0.3rem; */
         width: 100%;
         height: 100%;
-        background-color: #fff;
+        background-color: #eaeaea;
 			}
-      .freeze{
-        /* background-color: pink; */
-        padding:0.2rem 0.3rem;
+      ul{
+        margin: 0;
+        padding: 0;
       }
-      .freeze .accountTxt span{
-        font-size: 0.32rem;
-        font-family: "微软雅黑";
+      li{
+        list-style: none;
+      }
+      .detailBox{
+        margin-top: 0.2rem;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        padding: 0.15rem 0.3rem ;
+      }
+      .expenseList1 , .expenseList2{
+        display: flex;
+        justify-content: space-between;
+      }
+      .expenseList1 span, .expenseList2 span{
+        font-size: 0.28rem;
+        margin-top: 10px;
+        line-height: initial;
+      }
+      .expenseList2 span{
         color: #666;
       }
-
-      .phone{
-				padding: 0.3rem 0.4rem;
-				border-bottom: #eaeaea solid 0.01rem;
-				/* height: 0.8rem !important; */
-				width: 100%;
-				background-color: #fff;
-				font-size: 0.35rem;
-				font-family: "微软雅黑";
-			}
-			.phone>a{
-				width: 100%;
-				height: 100%;
-				color: black;
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-			}
-			.phone>a span{
-				color: #000;
-				/* font-size: 0.30rem; */
-				font-weight: 500;
-			}
-      .phoneLeft{
-        display: flex;
-        align-items: center;
-        width: 2.2rem;
-        padding-right: 0.2rem;
-       /* border-right: #999 solid 0.02rem; */
+      .detailList li{
+        padding-bottom: 10px;
+        border-bottom: 0.5px solid #eaeaea;
       }
-      .phoneLeft span:last-child{
-        color: #000;
-      }
-      .phone-input{
-        display: flex;
-      }
-      .mui-input-group{
-        width: 100%;
-        height: 0.5rem;
-      }
-      .mui-input-group .mui-input-row{
-        width: 100%;
-        height: 0.5rem;
-        position: relative;
-      }
-      .mui-input-group:before,.mui-input-group::after,.mui-input-group .mui-input-row:after{
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        height: 0px;
-        content: '';
-        -webkit-transform: scaleY(.5);
-        transform: scaleY(.5);
-        background-color: #c8c7cc;
-      }
-      #phoneInput{
-        width: 90%;
-        height: 0.5rem !important;
-        flex: 2;
-        border:  0 ;
-        display: flex;
-        align-items: center;
-        margin: 0;
-        padding: 0;
-        border-radius: 0;
-        height: auto;
-        font-size: 0.33rem;
-      }
-    
-      .phoneLogo::after{
-        background: url('../images/drawable-xhdpi/shouji.png')
-      }
-      #cancelBtn{
-        position: absolute;
-        top: 0.05rem;
-        right: 0.1rem;
-      }
-      #codeInput{
-        flex: 2;
-        border:  0 ;
-        display: flex;
-        align-items: center;
-        margin: 0;
-        padding: 0;
-        border-radius: 0;
-        height: auto;
-        text-indent:  0.2rem;
-      }
-      #phoneLogo{
-        display: block;
-        width: 0.23rem;
-        height: 0.35rem;
-        position: absolute;
-        top: 0.1rem;
-        right: 0rem;
-      }
-      .code-input{
-        display: flex;
-        padding:  0.3rem;
-      }
-      .code-input img{
-        width: 1.5rem ;
-        height: 0.55rem;
-        display: block;
-      }
-      .transferPrompt{
-        padding: 0.2rem 0.3rem;
+      #screeningBtn{
         font-size: 0.3rem;
-        color: #999;
       }
-      #freezeBtn{
-         margin-top: 1rem;
-         width: 5.9rem;
-         height: 0.8rem;
-         margin: 1.2rem auto 0.5rem;
-				 border-radius: 50px;
-				 background-image:linear-gradient(to top right,#1aa0ff,#01cdf2);
-				 border: 0;
-         line-height: 0.8rem;
-         font-size: 0.33rem;
+
+
+      .isRen{
+        color: red;
       }
-      .mui-btn-block{
-				 padding: 0px ;
-			 }
+      .negativeBlue{
+        color:#1281e0;
+      }
     </style>
 	</head>
 
 	<body>
 			<header id="header" class="mui-bar mui-bar-nav">
-				<h1 class="mui-title">转到 i 币账户</h1>
-				<button class="mui-action-back mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left"><span class="mui-icon mui-icon-left-nav"></span></button>
+				<h1 class="mui-title">明细</h1>
+        <button class="mui-action-back mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left"><span class="mui-icon mui-icon-left-nav"></span></button>
+        <span id="screeningBtn" class="mui-btn mui-btn-blue mui-btn-link mui-pull-right">筛选</span>
       </header>
+
       <div class="mui-content">
-         
-
-          <div class="phone phone-input">
-                <div class="phoneLeft mui-pull-left">
-                    <span>对方账户</span>
-                </div>
-                <form class="mui-input-group">
-                    <div class="mui-input-row phoneLogo" >
-                        <input type="text" id="phoneInput" class="mui-input-clear" placeholder="请输入 i 币账户/手机号码">
-                        <span class="mui-icon mui-icon-clear mui-hidden" id="cancelBtn"></span>
-                    <img id="phoneLogo"src="../images/drawable-xhdpi/shouji.png" alt="">
+          <div class="detailBox">
+              <ul class="detailList">
+                <li>
+                    <div class="expenseList1">
+                        <span>收益 - 商品</span>
+                        <span class="isRen">+200</span>
                       </div>
-                </form>
+                      <div class="expenseList2">
+                        <span>2018-11-20 13：13</span>
+                        <span>余额：252</span>
+                        <!-- 判断正红.isRen 负蓝.negativeBlue -->
+                      </div>
+                </li>
+                <li>
+                    <div class="expenseList1">
+                        <span>消费商品</span>
+                        <span  class="negativeBlue">-200</span>
+                      </div>
+                      <div class="expenseList2">
+                        <span>2018-11-20 13：13</span>
+                        <span>余额：252</span>
+                      </div>
+                </li>
+              </ul>
           </div>
-          <div class="transferPrompt"> 
-            <span>i币将实时转入对方 i 币账户，无法退款</span>
-          </div>
-          
-          <button type="button" id="freezeBtn" class="mui-btn mui-btn-primary mui-btn-block">下一步 </button>
-
-
       </div>
+
+
 
 
 
@@ -211,6 +132,7 @@
 			})
 		</script>
 	<!-- Code injected by live-server -->
+<!-- Code injected by live-server -->
 <script type="text/javascript">
 	// <![CDATA[  <-- For SVG support
 	if ('WebSocket' in window) {
@@ -285,11 +207,11 @@
 </script></body>
 
 </html>
-<script type="text/javascript">
-    var freezeBtn = document.getElementById('freezeBtn');
-    freezeBtn.onclick = function(){
-      window.location.href = "../html/GoToTheAccount.html";
+<script>
+    	var opendetail = document.getElementById('opendetail');
+    opendetail.onclick = function(){
+      window.location.href = "../html/detail.html";
     }
-
-
 </script>
+
+

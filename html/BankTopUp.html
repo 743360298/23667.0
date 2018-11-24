@@ -494,20 +494,20 @@
  $("#nextstepBtn").on("click",function(){
       $(".bouncedBox").addClass('top0')
         // $(".bouncedBox").slideDown(300)
-        $(".mui-active").fadeIn(300)
+        $(".mui-active").show()
     })
 
     // 点击关闭隐藏弹框
      $("#ShutDownBtn").on("click",function(){
         $(".bouncedBox").removeClass('top0')
         // $(".bouncedBox").slideUp(300)
-        $(".mui-active").fadeOut(300)
+        $(".mui-active").hide()
     })
       
     // 点击遮罩层隐藏弹框
      $(".mui-active").on("click",function(){
         $(".bouncedBox").removeClass('top0')
-        $(".mui-active").fadeOut(300)
+        $(".mui-active").hide()
         $(".bouncedPwd").fadeOut(300)
     })
 
@@ -516,13 +516,13 @@
     // 密码弹框
      $("#paymentBtn").on("click",function(){
         $(".bouncedPwd").fadeIn(100)
-        $(".mui-active").fadeIn(300)
+        $(".mui-active").show()
         $(".bouncedBox").slideUp(100)
     })
     // 关闭密码框
      $("#bouncedPwdBtn").on("click",function(){
         $(".bouncedPwd").fadeOut(100)
-        $(".mui-active").fadeOut(100)
+        $(".mui-active").hide()
     })
 
 

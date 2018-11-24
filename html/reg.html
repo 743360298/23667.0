@@ -118,35 +118,42 @@
 				/* border-bottom: 1px solid #eee; */
 				font-size: 0.3rem;
 				line-height: inherit;
-				margin-left: 0.2rem;
+				margin-left: 0.3rem;
 				letter-spacing:2px;
+				position: absolute;
+				top: 50%;
+				transform: translate(0,-50% );
 			}
 			.emailreg{
 				float: left;
 				font-size: 0.3rem;
 				margin-left: 0.4rem;
 				letter-spacing:2px;
+				line-height: initial;
 			}
 			#logintext{
 				margin-right: 0.4rem;
 				display: block;
 				float: right;
 				font-size: 0.3rem;
+				line-height: initial;
 			}
 			#loginlink{
 				color: #1BA0FF;
 			}
 			.loginbtn{
 				position: relative;
-				top: 280px;
+				top: 4.8rem;
 				width: 5.9rem;
 				height: 0.8rem;
 				line-height: 0.8rem;
 				font-size: 0.3rem;
-				margin: 0 auto;
+				margin: 1rem auto 0;
 				border-radius: 0.8rem;
 				text-align: center;
-	    	background-image:linear-gradient(55deg,#1aa0ff,#01cdf2);
+	    	/* background-image:linear-gradient(55deg,#1aa0ff,#01cdf2); */
+				background:url('../images/drawable-xhdpi/yuanjiao.png');
+				background-size: 100% 100%;
 	    	color: #fff;
 				z-index: 999999999999;
 			}
@@ -170,16 +177,18 @@
 						<input type="text" name="phone" id="phone" placeholder="请输入手机号"/>
 					</div>
 				</form>
-				<span class="emailreg" id="emailreg">
-					邮箱注册
-				</span>
-				<span id="logintext">
-					已有账号?&nbsp;&nbsp;<span id="loginlink">登录</span>
-				</span>
+				<div>
+						<span class="emailreg" id="emailreg">
+								邮箱注册
+							</span>
+							<span id="logintext">
+								已有账号?&nbsp;&nbsp;<span id="loginlink">登录</span>
+							</span>
+				</div>
 			</div>
-			</div>
-			<div class="loginbtn" id="loginbtn">
-				下一步
+		</div>
+				<div class="loginbtn" id="loginbtn">
+					下一步
 			</div>
 		</div>
 
@@ -238,42 +247,40 @@
 									return ;
 							}
 
-
-						
+	
 					var apiurl = "/hyapi/user/sendvcode";
 
 
 						
-					// var _uniqueid = Math.random();
+					var _uniqueid = Math.random();
 
-					// var param = {
-					// 	common_param : JSON.stringify({
-					// 		"mobile":phone_txt,
-					// 		"unique":_uniqueid
-					// 	}),
-					// 	token: ""
-					// }
+					var param = {
+						common_param : JSON.stringify({
+							"mobile":phone_txt,
+							"unique":_uniqueid
+						}),
+						token: ""
+					}
 					
-					// //console.log( param ,baseURL )
+					//console.log( param ,baseURL )
 					
-					// console.log(apiurl)
-					// $.post(apiurl, param, function(res){
-					// 		console.log(res);
+					console.log(apiurl)
+					$.post(apiurl, param, function(res){
+							console.log(res);
 							
-					// 		if(res.errcode== 0 ){
-					// 			console.log('请求成功');
-					// 			mui.toast("验证码已经发到您的手机");
-					// 			window.location.href = "../html/reg2.html";
-					// 				return ; 
-					// 		}else{
-					// 			mui.toast("您的手机号不正确，请重新输入");
-					// 			console.log('您的手机号不正确，请重新输入');
-					// 		}
-					// 	})
+							if(res.errcode== 0 ){
+								console.log('请求成功');
+								mui.toast("验证码已经发到您的手机");
+								setTimeout("window.location.href='../html/reg2.html'", 1000);  
+								// window.location.href = "../html/reg2.html";
+									return ; 
+							}else{
+								mui.toast("您的手机号不正确，请重新输入");
+								console.log('您的手机号不正确，请重新输入');
+							}
+						})
 
 				})
-
-
 
 			}
  })

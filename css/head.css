@@ -4,6 +4,8 @@
 }
 .mui-bar{
   height: 0.88rem;
+  padding-right: 0.2rem;
+  padding-left: 0.2rem;
 }
 .mui-bar .mui-title{
   display: block;
@@ -22,7 +24,7 @@
   padding-top: 0.88rem !important;
 }
 .mui-icon-back:before, .mui-icon-left-nav:before{
-  font-size: 0.33rem;
+  font-size: 0.43rem;
 }
 .mui-bar-nav.mui-bar .mui-icon{
   height: 0.88rem;
@@ -38,4 +40,8 @@
 }
 .mui-content{
   background-color:  initial;
+}
+.mui-bar .mui-btn-nav.mui-pull-left{
+  margin-left: 0;
+  padding-left: 4px;
 }
