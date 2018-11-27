@@ -251,69 +251,34 @@
       window.location.href = "../html/reg2.html";
     }
 
-		$(function(){
-    init() ;
-    function init(){
-        eventList() ;
-    }
-    function eventList(){
-        // 登录按钮  
-        $("#loginbtn").on("click",function(){
-            // console.log(123);
+$(function(){
 
+// 登录按钮  
+    $("#loginbtn").on("click",function(){
             var username_txt = $("[name='username']").val().trim() ;
             var password_txt = $("[name='password']").val().trim() ;
-
-            if(!$.checkPhone(username_txt)){
-                mui.toast("用户名不合法");
-                return ;
-            }
-            if(password_txt.length<6){
-                mui.toast("密码不合法");
-                return ;
-            }
-
 						// 发送请求到后台 
 						var apiurl = "/hyapi/user/login";
-					
-							var _uniqueid = Math.random();
-
 							var param = {
 								common_param : JSON.stringify({
-									"email":email_txt,
-									"unique":_uniqueid
-								}),
-								token: ""
+									"username":username_txt,
+									"password":password_txt
+								})
 							}
-					
-					//console.log( param ,baseURL )
-					
-					console.log(apiurl)
 
             $.post(apiurl, param, function(res){
-	
 
 									console.log(res);
 
-				      	if(res.errcode == 0 ){
-                    // 存用户信息到回话存储中
-                    // sessionStorage.setItem("username",JSON.stringify(common_param.data));
-                    $.setUser(common_param.data);
-                    // 执行跳转页面
-                    var page = sessionStorage.getItem("pageName");
-                    if(page){
-                        location.href = page ;
-                    }else{
-											console.log('跳转');
-											
-                        // location.href = "../index.html" ;
-                    }
+				      	if(res.errcode == 0 && res.data != undefined && res.data != "" ){
+										removeTemp();
+										localStorage.setItem("token", res.data);
+										location.href = "./user.html" ;
                 }else{
-                    mui.toast(common_param.meta.msg) ;   
+                    mui.toast( res.errmsg ) ;   
                 }
             })
-        })  
-    }
+        })
 
 })
 </script>

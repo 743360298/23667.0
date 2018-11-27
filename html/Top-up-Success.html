@@ -1,0 +1,167 @@
+
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" href="../css/head.css">
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/public.js"></script>
+		<script>
+			mui.init();
+		</script>
+		<style type="text/css">
+			body {
+        background-color: #fff;
+      }
+      #header{
+        background-color: #fff;
+        border: 0;
+        box-shadow: 0 0 0 #000;
+      }
+			.mui-bar .mui-bar-nav {
+				box-shadow: none;
+        background-color: rgba(255,255,255);
+			}
+      .mui-content{
+				padding: 0 0.7rem;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+			}
+			 #unfreezeBtn{
+         margin-top: 1rem;
+         width: 5.9rem;
+         height: 0.8rem;
+         margin: 1.2rem auto ;
+				 border-radius: 50px;
+				 /* background-image:linear-gradient(to top right,#1aa0ff,#01cdf2); */
+				 background: url('../images/drawable-xhdpi/yuanjiao.png') no-repeat;
+         background-size: 100% 100%;
+				 border: 0;
+         line-height: 0.8rem;
+         font-size: 0.33rem;
+      }
+      .mui-btn-block{
+				 padding: 0px ;
+			 }
+       .successImg{
+         margin: 1rem auto 0;
+         width: 1.4rem;
+         height: 1.78rem;
+       }
+       .successImg img{
+         width: 100%;
+         height: 100%;
+       }
+       .successTxt{
+         display: block;
+         margin-top: 1rem auto 0;
+         font-size: 0.36rem;
+       }
+       .successTxt #successNum{
+         color: #ff5555;
+       }
+       .successTxt span:last-child{
+         text-align: center;
+       }
+		</style>
+	</head>
+
+	<body>
+
+    <header id="header" class="mui-bar mui-bar-nav">
+      <h1 class="mui-title">充值详情</h1>
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		</header>
+		
+    <!-- 解冻账号 -->
+    <div class="mui-content">
+        <div class="success">
+          <div class="successImg">
+            <img src="../images/drawable-xhdpi/cz.png" alt="">
+          </div>
+          <div class="successTxt">
+            <span id="successNum">100</span>元
+            <span>充值成功</span>
+          </div>
+          <div>
+            <span>招商银行</span>
+            <span>尾号1104</span>
+          </div>
+        </div>
+
+
+				<button type="button" id="unfreezeBtn" class="mui-btn mui-btn-primary mui-btn-block">开始冻结</button>
+				
+
+    </div>
+    
+
+		
+		<script type="text/javascript">
+			mui.plusReady(function(){
+				mui(".emailreg")[0].addEventListener('tap',function(){
+					plus.webview.open('emailreg.html', 'emailreg', {}, 'slide-in-right', 200);
+				})
+				mui("#loginlink")[0].addEventListener('tap',function(){
+					plus.webview.currentWebview().close();
+					plus.webview.show('login.html', 'login', {}, 'slide-in-right', 200);
+				})
+				mui(".loginbtn")[0].addEventListener('tap',function(){
+					plus.webview.open('reg2.html', 'reg2', {}, 'slide-in-right', 200);
+				})
+			})
+    </script>
+    
+  <!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					head.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					head.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script></body>
+
+</html>
+<script>
+    var unfreezeBtn = document.getElementById('unfreezeBtn');
+    unfreezeBtn.onclick = function(){
+      window.location.href = "../html/freeze3.html";
+    }
+</script>

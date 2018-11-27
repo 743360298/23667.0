@@ -47,7 +47,9 @@
          height: 0.8rem;
          margin: 30px auto 0 ;
 				 border-radius: 50px;
-				 background-image:linear-gradient(to top right,#1aa0ff,#01cdf2);
+         background: url('../images/drawable-xhdpi/yuanjiao.png') no-repeat;
+         background-size: 100% 100%;
+				 /* background-image:linear-gradient(to top right,#1aa0ff,#01cdf2); */
 				 border: 0;
          line-height: 0.8rem;
          font-size: 0.33rem;
@@ -149,7 +151,10 @@
         top: 100%;
         transition: all 0.5s;
         /* display: none; */
-        z-index: 99999999999999999999;
+        z-index: 9999;
+      }
+      .mui-toast-container{
+        z-index: 9999999999;
       }
       .top0{
 
@@ -158,7 +163,8 @@
       .bouncedHead{
         display: flex;
         justify-content: space-between;
-        padding: 15px;
+        align-items: center;
+        padding:10px 15px;
         position: relative;
       }
       .bouncedHead::after{
@@ -167,7 +173,7 @@
         content: "";
         height: 1px;
         width: 100%;
-        background-color: #999;
+        background-color: #eaeaea;
         position: absolute;
         bottom: 0;
         left: 0;
@@ -207,7 +213,9 @@
         content: "";
         height: 1px;
         width: 100%;
-        background-color: #999;
+        background-image: -webkit-gradient(linear, left bottom, left top, color-stop(50%, transparent), color-stop(50%, #eaeaea));
+        /* background-color:#666;
+        transform:scaley(0.5); */
         position: absolute;
         bottom: 0;
         left: 0;
@@ -282,7 +290,7 @@
           <img src="../images/drawable-xhdpi/wt.png" alt="">
         </div>
         <div class="bouncedAmount">
-           <div class="bouncedMoney">￥<span>100.00</span></div>
+           <div class="bouncedMoney">￥<span id="bouncedMoney">100.00</span></div>
         </div>
   
         <div class="bouncedBox2">
@@ -331,6 +339,8 @@
 	</body>
 
 </html>
+<script src="../js/jquery-1.12.2.js"></script>
+<script src="../js/common.js"></script>
 <script>
   	var nextstepBtn = document.getElementById('nextstepBtn');
     nextstepBtn.onclick = function(){
@@ -338,28 +348,74 @@
 		}
 
 
-    
-
  // 点击下一步弹出弹框
- $("#nextstepBtn").on("click",function(){
-      $(".bouncedBox").addClass('top0')
-        // $(".bouncedBox").slideDown(300)
-        $(".mui-active").show()
-    })
 
-    // 点击关闭隐藏弹框
-     $("#ShutDownBtn").on("click",function(){
-        $(".bouncedBox").removeClass('top0')
-        // $(".bouncedBox").slideUp(300)
-        $(".mui-active").hide()
-    })
-      
-    // 点击遮罩层隐藏弹框
-     $(".mui-active").on("click",function(){
-        $(".bouncedBox").removeClass('top0')
-        $(".mui-active").hide()
-        $(".bouncedPwd").fadeOut(300)
-    })
+ $(function () {
+
+var paytype = "wechatpay";
+var money;
+var isPost = false;
+
+if( !isLogin() ){
+  window.location.href='./login.html';
+}
+
+
+$('#nextstepBtn').on('click',function () {
+
+  money = $.trim($("#amountMoney").val());
+
+  if(!($.isNumeric(money) && parseFloat(money) > 0)){
+        mui.toast("充值金额必须大于0");
+        return ;
+    } else {
+      $("#bouncedMoney").html(money);
+      $(".bouncedBox").addClass('top0')
+      $(".mui-active").show();
+    }
+})
+
+
+$("#paymentBtn").on('click',function() {
+  if( isPost == true ) {
+    return;
+  }
+
+  var apiurl = "/hyapi/user/recharge";
+    var token = getToken();
+    var param = {
+      type: paytype,
+      money: money,
+    }; 
+  $.post(apiurl, {common_param:JSON.stringify(param),token:token}, function(res){
+    isPost = false;
+    if( res.errcode == 0 ) {
+      mui.toast("充值成功");     
+      console.log("充值成功");     
+    } else {        
+      mui.toast(res.errmsg);
+    }
+    $(".bouncedBox").removeClass('top0')
+    $(".mui-active").hide()
+  });
+  isPost = true;
+});
+
+
+// 点击关闭隐藏弹框
+$("#ShutDownBtn").on("click",function(){
+      // $(".bouncedBox").removeClass('top0')
+      $(".bouncedBox").slideUp(300)
+      $(".mui-active").hide()
+  })
+    
+  // 点击遮罩层隐藏弹框
+$(".mui-active").on("click",function(){
+      $(".bouncedBox").fadeOut()
+      $(".mui-active").hide()
+})
+
+})
 
 
 

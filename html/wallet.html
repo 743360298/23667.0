@@ -88,7 +88,7 @@
 			}
 			.walletList .wallet-li{
 				width: 33.33%;
-				margin-top: 0.3rem;
+				margin-top: 0.5rem;
 			}
 			.walletList .wallet-li a{
 				width: 100%;
@@ -139,7 +139,7 @@
 						<li  class="wallet-li">
 							<a href="../html/balance.html">
 								<img src="../images/drawable-xhdpi/Ibeiyue.png" alt="">
-								<p>i 贝余额</p>
+								<p>i 币余额</p>
 							</a>
 						</li>
 						
@@ -203,3 +203,15 @@
 </html>
 <script src="../js/mui.min.js"></script>
 <script src="../js/public.js"></script>
+<script src="../js/jquery-1.12.2.js"></script>
+<script src="../js/common.js"></script>
+
+<script>
+	window.onload = function () {
+
+			if( !isLogin() ) {
+				location.href = "../html/login.html";
+			}
+
+}
+</script>	

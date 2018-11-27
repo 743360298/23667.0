@@ -238,22 +238,26 @@
 			function eventList(){
 				$("#loginbtn") .on("click",function(){
 					var email_txt = $.trim($("[name='email']").val());
-							if(!$.checkEmail(email_txt)){
+					var re = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/; 
+							if(!re.test(email_txt)){
 								console.log(email_txt);
 									// 非法 
 									mui.toast("邮箱不正确");
 									return ;
 							}
 
+	
+					var apiurl = "/hyapi/user/sendvcode";
+
 
 						
-					var apiurl = "/hyapi/user/register";
-					
-					var _uniqueid = Math.random();
+					//var _uniqueid = Math.random();
+					var _uniqueid = "123123";
 
+					localStorage.setItem("temp_unique",_uniqueid);
 					var param = {
 						common_param : JSON.stringify({
-							"email":email_txt,
+							"mobile":email_txt,
 							"unique":_uniqueid
 						}),
 						token: ""
@@ -268,11 +272,17 @@
 							if(res.errcode== 0 ){
 								console.log('请求成功');
 								mui.toast("验证码已经发到您的邮箱");
+
+								localStorage.setItem("temp_email",email_txt);
+
+								localStorage.setItem("temp_register_from", "email");
+
 								setTimeout("window.location.href='../html/reg2.html'", 1000);  
 								// window.location.href = "../html/reg2.html";
 									return ; 
 							}else{
 								mui.toast(res.errmsg);
+								console.log('您的邮箱不正确，请重新输入');
 							}
 						})
 

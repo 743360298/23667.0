@@ -49,7 +49,8 @@
         margin: 0  ;
         margin-top: 0.3rem;
         border: 0;
-        background-image:linear-gradient(55deg,#1aa0ff,#01cdf2);
+        background: url('../images/drawable-xhdpi/yuanjiao.png') no-repeat;
+         background-size: 100% 100%;
         width: 5.9rem;
         height: 0.8rem;
         font-size: 0.33rem;
@@ -156,7 +157,8 @@
       .bouncedHead{
         display: flex;
         justify-content: space-between;
-        padding: 15px;
+        align-items: center;
+        padding:10px 15px;
         position: relative;
       }
       .bouncedHead span{
@@ -166,7 +168,7 @@
         clear: both;
         display: block;
         content: "";
-        height: 0.5px;
+        height: 1px;
         width: 100%;
         background-color: #eaeaea;
         position: absolute;
@@ -174,8 +176,10 @@
         left: 0;
       }
       .bouncedHead img{
-        width: 5%;
-        height: 20%;
+        width: 0.27rem;
+        height: 0.27rem;
+        /* width: 5%;
+        height: 20%; */
       }
       .bouncedAmount{
         position: relative;
@@ -226,7 +230,9 @@
         content: "";
         height: 1px;
         width: 100%;
-        background-color: #999;
+        background-image: -webkit-gradient(linear, left bottom, left top, color-stop(50%, transparent), color-stop(50%, #eaeaea));
+        /* background-color:#666;
+        transform:scaley(0.5); */
         position: absolute;
         bottom: 0;
         left: 0;
@@ -399,7 +405,7 @@
         <img src="../images/drawable-xhdpi/wt.png" alt="">
       </div>
       <div class="bouncedAmount ">
-         <div class="bouncedMoney">￥<span>100.00</span></div>
+         <div class="bouncedMoney">￥<span id="bouncedMoney">100.00</span></div>
       </div>
 
       <div class="bouncedBox2">
@@ -430,7 +436,7 @@
       <div class="bouncedAmount bouncedAmount2">
         <div class="bouncedMoney2">
           <span id="bouncedChange">零钱</span>
-          <p>￥<span>100.00</span></p>
+          <p>￥<span id="">100.00</span></p>
         </div>
      </div>
      <div class="bouncedcard">
@@ -483,47 +489,98 @@
 	</body>
 
 </html>
+<script src="../js/jquery-1.12.2.js"></script>
+<script src="../js/common.js"></script>
 <script>
   	var nextstepBtn = document.getElementById('nextstepBtn');
     nextstepBtn.onclick = function(){
       // window.location.href = "../html/user.html";
-		}
+    }
 
 
- // 点击下一步弹出弹框
- $("#nextstepBtn").on("click",function(){
-      $(".bouncedBox").addClass('top0')
-        // $(".bouncedBox").slideDown(300)
-        $(".mui-active").show()
-    })
+$(function () {
 
-    // 点击关闭隐藏弹框
-     $("#ShutDownBtn").on("click",function(){
+  var paytype = "unionpay";
+  var money;
+  var isPost = false;
+
+  if( !isLogin() ){
+    window.location.href='./login.html';
+  }
+
+
+  $('#nextstepBtn').on('click',function () {
+
+    money = $.trim($("#amountMoney").val());
+
+    if(!($.isNumeric(money) && parseFloat(money) > 0)){
+          mui.toast("充值金额必须大于0");
+          return ;
+      } else {
+        $("#bouncedMoney").html(money);
+        $(".bouncedBox").addClass('top0')
+        $(".mui-active").show();
+      }
+  })
+
+  
+  $("#paymentBtn").on('click',function() {
+    if( isPost == true ) {
+      return;
+    }
+
+    var apiurl = "/hyapi/user/recharge";
+      var token = getToken();
+      var param = {
+        type: paytype,
+        money: money,
+      }; 
+    $.post(apiurl, {common_param:JSON.stringify(param),token:token}, function(res){
+      isPost = false;
+      if( res.errcode == 0 ) {
+        mui.toast("充值成功");        
+      } else {        
+        mui.toast(res.errmsg);
+      }
+      $(".bouncedBox").removeClass('top0')
+      $(".mui-active").hide()
+    });
+    isPost = true;
+  });
+
+
+  // 点击关闭隐藏弹框
+  $("#ShutDownBtn").on("click",function(){
         $(".bouncedBox").removeClass('top0')
         // $(".bouncedBox").slideUp(300)
         $(".mui-active").hide()
     })
       
     // 点击遮罩层隐藏弹框
-     $(".mui-active").on("click",function(){
+  $(".mui-active").on("click",function(){
         $(".bouncedBox").removeClass('top0')
         $(".mui-active").hide()
         $(".bouncedPwd").fadeOut(300)
-    })
+  })
 
+})
 
+    
+
+    
 
     // 密码弹框
-     $("#paymentBtn").on("click",function(){
-        $(".bouncedPwd").fadeIn(100)
-        $(".mui-active").show()
-        $(".bouncedBox").slideUp(100)
-    })
-    // 关闭密码框
-     $("#bouncedPwdBtn").on("click",function(){
-        $(".bouncedPwd").fadeOut(100)
-        $(".mui-active").hide()
-    })
+  // function paymentBtn() {
+  //    $("#paymentBtn").on("click",function(){
+  //       $(".bouncedPwd").fadeIn(100)
+  //       $(".mui-active").show()
+  //       $(".bouncedBox").slideUp(100)
+  //   })
+  //    $("#bouncedPwdBtn").on("click",function(){
+  //       $(".bouncedPwd").fadeOut(100)
+  //       $(".mui-active").hide()
+  //   })
+  // }
 
 
 

@@ -11,6 +11,7 @@
 		<link rel="stylesheet" href="../css/mui.min.css">
 		<link rel="stylesheet" href="../css/head.css">
 		<script src="../js/mui.min.js"></script>
+		<script src="../js/jquery-1.12.2.js"></script>
 		<script src="../js/public.js"></script>
 		<script>
 			mui.init();
@@ -41,13 +42,15 @@
         background-color: #eaeaea;
 			}
 			 #topupBtn,#reflectBtn{
-         margin-top: 1rem;
+         /* margin-top: 1rem; */
          width: 5.9rem;
          height: 0.8rem;
-         margin: 1.2rem auto 0;
+         margin: 0.68rem auto 0;
 				 border-radius: 50px;
-				 background-image:linear-gradient(to top right,#1aa0ff,#01cdf2);
-				 border: 0;
+				 /* background-image:linear-gradient(to top right,#1aa0ff,#01cdf2); */
+				background: url('../images/drawable-xhdpi/yuanjiao.png') no-repeat;
+         background-size: 100%  100%;
+         border: 0;
          line-height: 0.8rem;
          font-size: 0.33rem;
       }
@@ -70,7 +73,7 @@
 	    	background: url('../images/drawable-xhdpi/ka.png') no-repeat;
         background-size: 100% 100%;
         width: 100%;
-        height: 3.5rem;
+        height: 3.74rem;
         padding: 0.36rem;
         color: #fff;
 	    	}
@@ -128,7 +131,7 @@
               <span>我的 i 币</span>
               <div class="balanceNum">
                 <img class='balanceNumImg' src="../images/drawable-xhdpi/ib.png" alt="">
-                <span id="iNum">2000.00</span>
+                <span id="iNum"></span>
               </div>
             </div>
           </div>
@@ -159,7 +162,7 @@
 	</body>
 
 </html>
-
+<script src="../js/common.js"></script>
 <script>
   	var topupBtn = document.getElementById('topupBtn');
     topupBtn.onclick = function(){
@@ -173,4 +176,15 @@
     reflectBtn.onclick = function(){
       window.location.href = "../html/withdrawal.html";
     }
+
+
+    $(function () {
+       
+      var apiurl = "/hyapi/user/getbalance?token=" + getToken();
+      $.get(apiurl, function(res) {
+        console.log(res);
+        $("#iNum").html(res.data);
+      });      
+
+    })
 </script>

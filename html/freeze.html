@@ -149,7 +149,9 @@
          height: 0.8rem;
          margin: 1.2rem auto 0;
 				 border-radius: 50px;
-				 background-image:linear-gradient(to top right,#1aa0ff,#01cdf2);
+         background: url('../images/drawable-xhdpi/yuanjiao.png') no-repeat;
+         background-size: 100% 100%;
+				 /* background-image:linear-gradient(to top right,#1aa0ff,#01cdf2); */
 				 border: 0;
          line-height: 0.8rem;
          font-size: 0.33rem;
@@ -186,7 +188,7 @@
                 </div>
                 <form class="mui-input-group">
                     <div class="mui-input-row">
-                        <input type="text" id="phoneInput" class="mui-input-clear" placeholder="请输入手机号">
+                        <input type="phone" id="phoneInput" class="mui-input-clear" placeholder="请输入手机号">
                         <span class="mui-icon mui-icon-clear mui-hidden" id="cancelBtn"></span>
                     </div>
                 </form>
@@ -215,36 +217,56 @@
 	</body>
 
 </html>
+<script src="../js/jquery-1.12.2.js"></script>
+<script src="../js/common.js"></script>
 <script type="text/javascript">
     var freezeBtn = document.getElementById('freezeBtn');
     freezeBtn.onclick = function(){
-      window.location.href = "../html/freeze2.html";
+      // window.location.href = "../html/freeze2.html";
     }
 
+    $(function () {
 
-//   $(function(){
-//     init() ;
-//     function init(){
-//         eventList() ;
-//         isPoneAvailable(str);
-//     }
-//     function eventList(){
-//         // 登录按钮  
-//         $("#freezeBtn").on("tap",function(){
-//             console.log(123);
+      if( !isLogin() ){
+        window.location.href='./login.html';
+      }
 
-//               function isPoneAvailable(str) {
-//                   var myreg=/^[1][3,4,5,7,8][0-9]{9}$/;
-//                   if (!myreg.test(str)) {
-//                     mui.toast("请输入手机号");
-//                       return false;
-//                   } else {
-//                       return true;
-//                   }
-//               }
+      $('#freezeBtn').on('click',function () {
 
-//         })  
-//     }
-// })
+         var phone = $("[type='phone']").val().trim() ;
+         var vcode = $.trim($("#codeInput").val());
+         
+         
+         if(!$.checkPhone(phone)){
+              mui.toast("手机号不正确");
+              return ;
+          }
+ 
+
+          var apiurl = "/hyapi/user/validemobile";
+          var token = getToken();
+          var param = {
+            mobile: phone,
+            vcode: vcode,
+          };
+          $.post(apiurl, {common_param:JSON.stringify(param),token:token}, function(res){
+						if( res.errcode == 0 ) {
+              apiurl = "/hyapi/user/freeze";
+              $.post(apiurl, {token:token}, function(res2) {
+                if(res2.errcode == 0) {
+                  console.log('跳转页面');
+                  location.href = "./freeze2.html" ;
+                } else {
+                  mui.toast(res2.errmsg);
+                }
+              });
+						} else {
+              mui.toast(res.errmsg);
+						}
+					});
+      })
+    })
+
+
 
 </script>

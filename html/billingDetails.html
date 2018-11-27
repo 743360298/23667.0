@@ -1,0 +1,299 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" href="../css/head.css">
+		<script src="../js/mui.min.js"></script>
+    <script src="../js/public.js"></script>
+    <script src="../js/zepto.js"></script>
+		<script>
+			mui.init();
+		</script>
+    <style type="text/css">
+      html{
+        background-color: #eaeaea;
+      }
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      #header{
+        background-color: #fff;
+        border-bottom: 1px solid #eaeaea;
+      }
+			.head-img{
+				padding: 0.1rem 0 ; 
+			}
+			.head-img img{
+				width: 70%;
+				height: 70%;
+				float: right;
+			}
+			.mui-content{
+				padding: 0 0.3rem;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+			}
+      html{
+        background-color: #fff;
+      }
+      .mui-bar-nav{
+        border: 0;
+        box-shadow: 0 0 0 #ccc;
+      }
+
+      .ThisMonth{
+        padding: 0.15rem 0.3rem;
+      }
+      ul{
+        margin: 0;
+        padding: 0;
+      }
+      li{
+        list-style: none;
+      }
+
+
+      .isRen{
+        color: red;
+      }
+      .negativeBlue{
+        color:#1281e0;
+      }
+
+      .mui-icon-arrowright:before{
+        color: #666;
+      }
+      .otherName{
+        display: flex;
+        flex-direction: column;
+        padding: 0.9rem 0.3rem 0;
+      }
+      .otherName>span{
+        display: block;
+        text-align: center;
+        font-size: 0.24rem ;
+        color: #999;
+      }
+      .otherImg{
+        display: flex;
+        justify-content: center;
+      }
+      .mui-icon{
+        line-height: inherit;
+      }
+      .otherImg img{
+        width: 0.38rem;
+        height: 0.38rem;
+        margin-right: 0.2rem;
+      }
+      .otherImg span{
+        letter-spacing: 2px;
+        font-size: 0.3rem;
+      }
+      #otherNum{
+        display: block;
+        text-align: center;
+        margin: 0.5rem 0;
+        font-size: 0.48rem;
+        color: #333;
+      }
+      .otherdetails{
+        margin-top: 1rem;
+      }
+      .otherList li{
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.3rem;
+        color: #666;
+      }
+      .otherList li a{
+        padding: 0.3rem 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.3rem;
+        color: #666;
+      }
+      .otherSpan{
+        color: #333;
+      }
+      .otherList li:nth-child(4),
+      .otherList li:nth-child(6){
+        position: relative;
+      }
+      .otherList li:nth-child(7){
+        opacity: 0;
+      }
+      .otherList li:nth-child(5),
+      .otherList li:nth-child(8),
+      .otherList li:nth-child(9){
+        border-top: 1px solid #eaeaea;
+      }
+      .otherList li .mui-icon-arrowright:before{
+        display: flex;
+        justify-content: flex-end;
+        margin-right: -0.05rem;
+        margin-left: 0.05rem;
+      }
+    </style>
+	</head>
+
+	<body>
+			<header id="header" class="mui-bar mui-bar-nav">
+				<h1 class="mui-title">账单详情</h1>
+        <button  class=" mui-action-back mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left"><span class="mui-icon mui-icon-left-nav"></span></button>
+
+      </header>
+
+      <div class="mui-content">
+        <div class="otherName">
+          <div class="otherImg">
+            <img src="../images/drawable-xhdpi/touxiang.png" alt="">
+            <span id="otherName1">陈小姐（陈小姐）</span>
+            <span class=" mui-pull-right mui-icon mui-icon-arrowright"></span>
+          </div>
+          <span id="otherNum">-100.00</span>
+          <span>交易成功</span>
+        </div>
+        <div class="otherdetails">
+          <ul class="otherList">
+            <li>
+              <a href="../html/detail.html">
+                  <span>付款方式</span>
+                  <div class="otherSpan">
+                      <span>i币</span>
+                      <span class=" mui-pull-right mui-icon mui-icon-arrowright"></span>
+                  </div>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:;">
+                  <span>转账备注</span>
+                  <span>转账</span>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:;">
+                  <span>对方账户</span>
+                  <span id="otherName2">陈小姐（陈小云）123***@163.com</span>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                  <span>账单分类</span>
+                  <div class="otherSpan">
+                     <span>其他</span>
+                     <span class=" mui-pull-right mui-icon mui-icon-arrowright"></span>
+                  </div>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:;">
+                  <span>创建时间</span>
+                  <span>2018-11-27 15:05</span>
+              </a>
+            </li>
+            <li>
+               <a href="javascript:;">  
+                  <span>订单号</span>
+                  <span>201458444545544555544</span>
+                </a>
+            </li>
+            <li>
+              <a href="javascript:;">
+                <span>1</span>
+                <span>1</span>
+              </a>
+            </li>
+            <li>
+              <a href="./ElectronicReceipt.html">
+                  <span>申请电子回单</span>
+                  <span class=" mui-pull-right mui-icon mui-icon-arrowright"></span>
+              </a>
+            </li>
+            <li>
+                <a href="../html/TransferRecord.html">
+                   <span>查看来往记录</span>
+                 <span class=" mui-pull-right mui-icon mui-icon-arrowright"></span>
+                </a>
+            </li>
+
+
+          </ul>
+        </div>
+      </div>
+
+
+
+
+
+		<script type="text/javascript">
+			mui.plusReady(function(){
+				mui(".name")[0].addEventListener('tap',function(){
+					plus.webview.open('login.html', 'login', {}, 'slide-in-right', 200);
+				})
+			})
+		</script>
+	<!-- Code injected by live-server -->
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					head.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					head.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script><!-- Code injected by live-server -->
+</body>
+
+</html>
+<script>
+    // 	var opendetail = document.getElementById('opendetail');
+    // opendetail.onclick = function(){
+    //   window.location.href = "../html/detail.html";
+    // }
+</script>
+
+

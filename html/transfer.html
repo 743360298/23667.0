@@ -155,7 +155,7 @@
         font-size: 0.3rem;
         color: #999;
       }
-      #freezeBtn{
+      #nextstepBtn{
          margin-top: 1rem;
          width: 5.9rem;
          height: 0.8rem;
@@ -193,10 +193,10 @@
                 </form>
           </div>
           <div class="transferPrompt"> 
-            <span>i币将实时转入对方 i 币账户，无法退款</span>
+            <span>i 币将实时转入对方 i 币账户，无法退款</span>
           </div>
           
-          <button type="button" id="freezeBtn" class="mui-btn mui-btn-primary mui-btn-block">下一步 </button>
+          <button type="button" id="nextstepBtn" class="mui-btn mui-btn-primary mui-btn-block">下一步 </button>
 
 
       </div>
@@ -285,11 +285,64 @@
 </script></body>
 
 </html>
+
+<script src="../js/jquery-1.12.2.js"></script>
+<script src="../js/common.js"></script>
+
 <script type="text/javascript">
-    var freezeBtn = document.getElementById('freezeBtn');
-    freezeBtn.onclick = function(){
-      window.location.href = "../html/GoToTheAccount.html";
+    // var freezeBtn = document.getElementById('freezeBtn');
+    // freezeBtn.onclick = function(){
+    //    window.location.href = "../html/GoToTheAccount.html";
+    // }
+    
+
+$(function () {
+
+var paytype = "alipay";
+var money;
+var isPost = false;
+
+if( !isLogin() ){
+  window.location.href='./login.html';
+}
+
+
+$('#nextstepBtn').on('click',function () {
+
+  phone = $.trim($("#phoneInput").val());
+  if( phone == "" ){
+              mui.toast("账户或手机号码不能为空");
+              return ;
+          }
+ 
+  console.log(phone);
+
+
+
+  var apiurl = "/hyapi/user/getotheruser";
+  var token = getToken();
+  var param = {
+    keyword: phone,
+   };
+
+  $.post(apiurl, {common_param:JSON.stringify(param)}, function(res){
+    isPost = false;
+    if( res.errcode == 0 ) {
+      if( res.data != undefined ) {
+        localStorage.setItem("temp_transfer_user", JSON.stringify(res.data));
+        window.location.href = "../html/GoToTheAccount.html";
+      } else {
+        mui.toast("没有找到该用户");
+      }
+      //
+    } else {        
+      mui.toast(res.errmsg);
     }
+  
+
+    })
+  })
+})
 
 
 </script>

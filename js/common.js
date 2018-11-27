@@ -1,5 +1,29 @@
-var baseURL = "http://www.2366.net/" ;
-// var baseURL = "http://a2366.wanyuwl.net/" ;
+ var baseURL = "http://www.2366.net/" ;
+//    var baseURL = "http://a2366.wanyuwl.net/" ;
+ //	var baseURL = "http://n2e2776256.iok.la/";
+
+function getToken() {
+    var token = localStorage.getItem("token");
+    if (token == null) token = "";
+    return token;
+}
+
+//判断是否已登录
+function isLogin() {
+    var token = localStorage.getItem("token");
+    if (token == "" || token == null) {
+        return false;
+    }
+    return true;
+}
+
+function removeTemp() {
+    localStorage.removeItem("temp_email");
+    localStorage.removeItem("temp_mobile");
+    localStorage.removeItem("temp_register_from");
+    localStorage.removeItem("temp_unique");
+    localStorage.removeItem("temp_vcode");
+}
 
 $(function(){
     // 基本路径 

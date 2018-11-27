@@ -1,0 +1,268 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" href="../css/head.css">
+		<script src="../js/mui.min.js"></script>
+    <script src="../js/public.js"></script>
+    <script src="../js/zepto.js"></script>
+		<script>
+			mui.init();
+		</script>
+    <style type="text/css">
+      html{
+        background-color: #eaeaea;
+      }
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      #header{
+        background-color: #fff;
+        border-bottom: 1px solid #eaeaea;
+      }
+			.head-img{
+				padding: 0.1rem 0 ; 
+			}
+			.head-img img{
+				width: 70%;
+				height: 70%;
+				float: right;
+			}
+			.mui-content{
+				padding:  0.3rem;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        position: relative;
+			}
+      html{
+        background-color: #fff;
+      }
+      .mui-bar-nav{
+        border: 0;
+        box-shadow: 0 0 0 #ccc;
+      }
+
+      .ThisMonth{
+        padding: 0.15rem 0.3rem;
+      }
+      ul{
+        margin: 0;
+        padding: 0;
+      }
+      li{
+        list-style: none;
+      }
+
+
+      .isRen{
+        color: red;
+      }
+      .negativeBlue{
+        color:#1281e0;
+      }
+
+
+     #nextstepBtn{
+				border-radius: 50px;
+        left: 50%;
+        bottom: 0;
+        transform: translate(-50%,0);
+        margin: 0  ;
+        margin-top: 0.3rem;
+        border: 0;
+        background: url('../images/drawable-xhdpi/yuanjiao.png') no-repeat;
+        background-size: 100% 100%;
+        width: 5.9rem;
+        height: 0.8rem;
+        font-size: 0.33rem;
+			 }
+       .mui-btn-block{
+         padding: 0;
+       }
+       .account{
+         padding: 0.3rem 0; 
+       }
+       .account p{
+         font-size: 0.36rem;
+         color: #333;
+       }
+       .account span{
+         font-size: 0.3rem;
+         color: #999;
+       }
+
+        .phone{
+				padding: 0.3rem 0.4rem;
+				border-bottom: #eaeaea solid 0.01rem;
+				/* height: 0.8rem !important; */
+				width: 100%;
+				background-color: #fff;
+				font-size: 0.35rem;
+				font-family: "微软雅黑";
+        margin-bottom: 0.2rem;
+			}
+			.phone>a{
+				width: 100%;
+				height: 100%;
+				color: black;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+			.phone>a span{
+				color: #000;
+				/* font-size: 0.30rem; */
+				font-weight: 500;
+			}
+      .phoneLeft{
+        display: flex;
+        align-items: center;
+        width: 2rem;
+        padding-right: 0.2rem;
+       /* border-right: #999 solid 0.02rem; */
+      }
+      .phoneLeft span:last-child{
+        color: #999;
+      }
+      .phone-input{
+        display: flex;
+      }
+      .mui-input-group{
+        width: 100%;
+        height: 0.5rem;
+      }
+      .mui-input-group .mui-input-row{
+        width: 100%;
+        height: 0.5rem;
+        position: relative;
+      }
+      .mui-input-group:before,.mui-input-group::after,.mui-input-group .mui-input-row:after{
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 0px;
+        content: '';
+        -webkit-transform: scaleY(.5);
+        transform: scaleY(.5);
+        background-color: #c8c7cc;
+      }
+      #emailInput{
+        width: 100%;
+        height: 0.5rem !important;
+        flex: 2;
+        border:  0 ;
+        display: flex;
+        align-items: center;
+        border-left: 0.04rem solid #1aa0ff ;
+        margin: 0;
+        padding: 0;
+        border-radius: 0;
+        height: auto;
+        text-indent:  0.2rem;
+        font-size: 0.33rem;
+      }
+      #cancelBtn{
+        position: absolute;
+        top: 0.05rem;
+      }
+      .prompt{
+        font-size: 0.28rem;
+        color: #666;
+      }
+      .bounced{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: pink;
+      }
+
+    </style>
+	</head>
+
+	<body>
+			<header id="header" class="mui-bar mui-bar-nav">
+				<h1 class="mui-title">转账电子回单</h1>
+        <button  class=" mui-action-back mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left"><span class="mui-icon mui-icon-left-nav"></span></button>
+
+      </header>
+
+      <div class="mui-content">
+        <div class="account">
+          <p>
+              将开具<span id="accountNum">123*****99</span>账户名下的电子凭证
+          </p>
+          <span>指定接收邮箱</span>
+
+          <div class="phone phone-input">
+              <!-- <div class="phoneLeft mui-pull-left">
+                  <span>中国</span>
+                  <span class=" mui-icon mui-icon-arrowright"></span>
+              </div> -->
+              <form class="mui-input-group">
+                  <div class="mui-input-row">
+                      <input type="text" id="emailInput" class="mui-input-clear" placeholder="请输入您的邮箱号码" data-input-clear="1">
+                      <span class="mui-icon mui-icon-clear mui-hidden" id="cancelBtn"></span>
+                  </div>
+              </form>
+        </div>
+
+        <span class="prompt">
+            电子凭证是一份具有电子签名的PDF文档，讲以邮件附件的形式发送到你指定的邮箱。
+        </span>
+
+
+        </div>
+
+
+        <button type="button" id="nextstepBtn" class="mui-btn mui-btn-primary mui-btn-block">发送</button>
+        
+         <!-- 弹框 -->
+        <div class="bounced">
+          <p>电子凭证将发送到******@***.com邮箱， 请确定邮箱输入是否正确。  </p>
+          <p>电子凭证包括个人重要隐私信息， 请勿随意发送。</p>
+        </div>
+
+      </div>
+
+
+
+
+
+
+
+		<script type="text/javascript">
+			mui.plusReady(function(){
+				mui(".name")[0].addEventListener('tap',function(){
+					plus.webview.open('login.html', 'login', {}, 'slide-in-right', 200);
+				})
+			})
+		</script>
+	<!-- Code injected by live-server -->
+<!-- Code injected by live-server -->
+
+</body>
+
+</html>
+<script>
+    // 	var opendetail = document.getElementById('opendetail');
+    // opendetail.onclick = function(){
+    //   window.location.href = "../html/detail.html";
+    // }
+</script>
+
+

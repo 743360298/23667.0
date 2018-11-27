@@ -72,7 +72,7 @@
         color: #999;
       }
 
-      #freezeBtn{
+      #confirmBtn{
          margin-top: 1rem;
          width: 5.9rem;
          height: 0.8rem;
@@ -176,7 +176,8 @@
       .bouncedHead{
         display: flex;
         justify-content: space-between;
-        padding: 15px;
+        align-items: center;
+        padding:10px 15px;
         position: relative;
       }
       .bouncedHead span{
@@ -246,7 +247,8 @@
         content: "";
         height: 1px;
         width: 100%;
-        background-color: #999;
+        /* background-color: #999; */
+        background-image: -webkit-gradient(linear,left top, left  bottom, color-stop(0.5,transparent),color-stop(0.5,#eaeaea),to(#eaeaea));
         position: absolute;
         bottom: 0;
         left: 0;
@@ -314,7 +316,7 @@
         </div>
 
                    
-          <button type="button" id="freezeBtn" class="mui-btn mui-btn-primary mui-btn-block">确认转账 </button>
+          <button type="button" id="confirmBtn" class="mui-btn mui-btn-primary mui-btn-block">确认转账 </button>
 
 
 			</div>
@@ -329,19 +331,19 @@
 							<div class="bouncedAmount ">
 								 <div class="bouncedMoney">
 									 <img src="../images/drawable-xhdpi/ibi.png" alt="">
-									 <span>100.00</span>
+									 <span id="bouncedMoney">100.00</span>
 									</div>
 							</div>
 				
 							<div class="bouncedBox2">
 								<div class="bouncedInfo">
 									<span>订单信息</span>
-									<span>i 币充值</span>
+									<span>转账</span>
 								</div>
 								<div class="bouncedInfo">
 									<span>付款方式</span>
 									<div>
-										<span>余额宝</span>
+										<span>i 币转账</span>
 										<span class=" mui-pull-right mui-icon mui-icon-arrowright"></span>
 									</div>
 								</div>
@@ -438,78 +440,108 @@
 	}
 	// ]]>
 </script><!-- Code injected by live-server -->
-<script type="text/javascript">
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					head.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					head.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
-</script></body>
+</body>
 
 </html>
+<script src="../js/common.js"></script>
 <script type="text/javascript">
-    var freezeBtn = document.getElementById('freezeBtn');
-    freezeBtn.onclick = function(){
+    // var freezeBtn = document.getElementById('freezeBtn');
+    // freezeBtn.onclick = function(){
       // window.location.href = "../html/code.html";
-		}
+		// }
     var toDetailBtn = document.getElementById('toDetailBtn');
     toDetailBtn.onclick = function(){
       window.location.href = "../html/TransferRecord.html";
 		}
-		
+
+
+$(function () {
+
+var paytype = "unionpay";
+var money;
+var isPost = false;
+
+if( !isLogin() ){
+	window.location.href='./login.html';
+}
+
+
+var temp_transfer_user = localStorage.getItem("temp_transfer_user");
+temp_transfer_user = JSON.parse(temp_transfer_user);
+$("#otherName").html(temp_transfer_user.user_name);
+$("#otherEmail").html(temp_transfer_user.user_email);
+console.log(temp_transfer_user);
+
+
+$('#confirmBtn').on('click',function () {
+
+	money = $.trim($("#TransferMoney").val());
+
+if(!($.isNumeric(money) && parseFloat(money) > 0)){
+			mui.toast("转账金额必须大于0");
+			return ;
+	} else {
+		$("#bouncedMoney").html(money);
+		$(".bouncedBox").addClass('top0')
+		$(".mui-active").show();
+	}
+})
+
+
+$("#paymentBtn").on('click',function() {
+    if( isPost == true ) {
+      return;
+		}
+
 
 		
- // 点击下一步弹出弹框
- $("#freezeBtn").on("click",function(){
-	 console.log('222');
-	 
-      $(".bouncedBox").addClass('top0')
-        // $(".bouncedBox").slideDown(300)
-        $(".mui-active").show()
-    })
+		
+    var apiurl = "/hyapi/user/transferbalance";
+      var token = getToken();
+      var param = {
+        user_id: temp_transfer_user.uid,
+				money: money,
+				remark:"转账备注",
+				password:""
+			}; 
+			
+    $.post(apiurl, {common_param:JSON.stringify(param),token:token}, function(res){
+			console.log(res);
+			
+      isPost = false;
+      if( res.errcode == 0 ) {
+				mui.toast("转账成功");
+				//location.reload();				     
+      } else {        
+        mui.toast(res.errmsg);
+      }
+       $(".bouncedBox").removeClass('top0')
+       $(".mui-active").hide()
+	    isPost = true;
+  });
 
-    // 点击关闭隐藏弹框
-     $("#ShutDownBtn").on("click",function(){
+
+})
+
+
+  // 点击关闭隐藏弹框
+  $("#ShutDownBtn").on("click",function(){
         $(".bouncedBox").removeClass('top0')
-        // $(".bouncedBox").slideUp(300)
         $(".mui-active").hide()
     })
       
     // 点击遮罩层隐藏弹框
-     $(".mui-active").on("click",function(){
+  $(".mui-active").on("click",function(){
         $(".bouncedBox").removeClass('top0')
         $(".mui-active").hide()
-        $(".bouncedPwd").fadeOut(300)
-    })
+        // $(".bouncedPwd").fadeOut(300)
+	})
+
+
+});
+	
+
+		
 
 
 

@@ -221,10 +221,6 @@
       window.location.href = "../html/login.html";
     }
 
-	var loginbtn = document.getElementById('loginbtn');
-	loginbtn.onclick = function(){
-      // window.location.href = "../html/reg2.html";
-	}
 	var emailreg = document.getElementById('emailreg');
 	emailreg.onclick = function(){
       window.location.href = "../html/regemail.html";
@@ -232,7 +228,7 @@
 
 
 	$(function(){
-      init();
+			init();
       function init(){
       eventList() ;
 			}
@@ -252,8 +248,10 @@
 
 
 						
-					var _uniqueid = Math.random();
+					//var _uniqueid = Math.random();
+					var _uniqueid = "123321";
 
+					localStorage.setItem("temp_unique",_uniqueid);
 					var param = {
 						common_param : JSON.stringify({
 							"mobile":phone_txt,
@@ -271,6 +269,11 @@
 							if(res.errcode== 0 ){
 								console.log('请求成功');
 								mui.toast("验证码已经发到您的手机");
+
+								localStorage.setItem("temp_mobile",phone_txt);
+
+								localStorage.setItem("temp_register_from", "mobile");
+
 								setTimeout("window.location.href='../html/reg2.html'", 1000);  
 								// window.location.href = "../html/reg2.html";
 									return ; 

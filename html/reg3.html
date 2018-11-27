@@ -201,33 +201,28 @@
 
 	
 	$(function(){
-      init();
-      function init(){
-      eventList() ;
-			}
-			
-			function eventList(){
-				$("#loginbtn") .on("click",function(){
+		//完成并登录
+		$("#loginbtn") .on("click",function(){
 					var password_txt = $.trim($("[name='password']").val());
-							// if(!$.checkPhone(password_txt)){
-							// 	console.log(password_txt);
-							// 		// 非法 
-							// 		mui.toast("密码不规范");
-							// 		return ;
-							// }
+					var apiurl = "/hyapi/user/register";
+					var vcode = localStorage.getItem("temp_vcode");
+					var mobile = localStorage.getItem("temp_mobile");
+					var email = localStorage.getItem("temp_email");
+					var unique = localStorage.getItem("temp_unique");
 
-						
-					var apiurl = "/hyapi/user/setpassword";
-
-
-
-					var _uniqueid = Math.random();
+					var postjson = {							
+							password: password_txt,
+							vcode: vcode,
+							unique: unique
+						};
+					if( localStorage.getItem("temp_register_from") == "email" ) {
+							postjson["email"] = email;
+						} else {
+							postjson["mobile"] = mobile;
+						}
 
 					var param = {
-						common_param : JSON.stringify({
-							"password":password_txt,
-							// "unique":_uniqueid
-						}),
+						common_param : JSON.stringify(postjson),
 						token: ""
 					}
 					
@@ -237,19 +232,14 @@
 					$.post(apiurl, param, function(res){
 							console.log(res);
 							
-							if(res.errcode== 0 ){
-								console.log('请求成功');
-								mui.toast("验证码已经发到您的手机");
-								window.location.href = "../html/reg2.html";
+							if(res.errcode == 0 ){
+								window.location.href = "../html/user.html";
 									return ; 
 							}else{
-								mui.toast("您的手机号不正确，请重新输入");
-								console.log('您的手机号不正确，请重新输入');
+								mui.toast(res.errmsg);
 							}
 						})
-
 				})
-			}
  })
 
 	

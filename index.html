@@ -13,7 +13,7 @@
 		<link rel="stylesheet" href="css/slick.css" />
 			<link rel="stylesheet" href="css/zjy.css" />
 			<style>
-						.footTab {
+			.footTab {
 				background-color: #fff;
 				display: flex;
 				bottom: 0;
@@ -54,10 +54,10 @@
 			 .footTab{
 				 padding: 10px 0s;
 			 }
-			.slider_content{
+			/*.slider_content{
 				height: 6.5rem;
 			}
-			
+			*/
 			@media only screen and (min-width: 320px) and (max-width: 360px) {
 				.slider_content{
 				height: 7.5rem;
@@ -86,12 +86,12 @@
 				<div>
 					<h3>
             		<img src="img/banner.png" />
-						
+								
 					</h3></div>
 				<div>
 					<h3>
             		<img src="img/banner.png" />
-						
+											
 					</h3></div>
 			</div>
 
@@ -247,13 +247,15 @@
 				slidesToShow: 3,
 				 play: true,                     //是否开起自动播放功能，提供true,false
                 play_speed: 2000, 
-				responsive: [{
-						breakpoint: 768,
+                autoplay:true,
+				responsive: [
+					{
+						breakpoint: 424,
 						settings: {
 							arrows: false,
 							centerMode: true,
-							centerPadding: '35px',
-							slidesToShow: 3
+							centerPadding: '60px',
+							slidesToShow: 1
 						}
 					},
 					{
@@ -261,7 +263,26 @@
 						settings: {
 							arrows: false,
 							centerMode: true,
-							centerPadding: '50px',
+							centerPadding: '80px',
+							slidesToShow: 1
+						}
+					},
+						{
+						breakpoint:768 ,
+						settings: {
+							arrows: false,
+							centerMode: true,
+							centerPadding: '120px',
+							slidesToShow: 1
+						}
+					}
+						,
+						{
+						breakpoint:1200 ,
+						settings: {
+							arrows: false,
+							centerMode: true,
+							centerPadding: '140px',
 							slidesToShow: 1
 						}
 					}
@@ -270,14 +291,14 @@
 			
 			setInterval(function(){
 				
-			$('.center').slickNext()
+//			$('.center').slickNext()
 				
 			},5000)
 			
 			setTimeout(function(){
 				$('.slider_content').removeClass('op')
 				
-			},200)
+			},300)
 			
 				$("#go_w").on('tap', function() {
 				mui.openWindow({

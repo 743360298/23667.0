@@ -12,7 +12,6 @@
 		<link rel="stylesheet" href="../css/head.css">
 		<script src="../js/mui.min.js"></script>
     <script src="../js/public.js"></script>
-    <script src="../js/zepto.js"></script>
 		<script>
 			mui.init();
 		</script>
@@ -187,5 +186,15 @@
 
 </html>
 
+<script src="../js/jquery-1.12.2.js"></script>
+<script src="../js/common.js"></script>
 
+<script>
+	window.onload = function () {
+
+			if( !isLogin() ) {
+				location.href = "./login.html";
+			}
+
+}
 </script>

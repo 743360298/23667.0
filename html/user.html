@@ -95,11 +95,11 @@
 	    		box-shadow: 0px 0px 5px #888888;
 	    	}
 	    	.userName .name{
+					width: initial;
 					color: #333;
-					margin-top: 0.2rem;
-					width:  200px;
-					display: flex;
-					justify-content: center;
+					margin-top: 0.3rem;
+					width: 2rem;
+					text-align: center;
 					font-size: 0.3rem;
 					line-height: initial;
 					overflow:hidden;
@@ -248,13 +248,13 @@
 			<div class="user">
 				<div class="userLogin">
 						<div class="userName">
-								<img class="icon" src="../images/drawable-xhdpi/touxiang.png"/>
-								<div class="name">请登录</div>
+								<img class="icon" src="../images/drawable-xhdpi/toxiang@2x.png"/>
+								<div class="name">未登录</div>
 						</div>
 						<div class="loginBox">
 								<span class="loginbtn" id="loginbtn">
 								<img class="login-img" src="../images/drawable-xhdpi/yhhu1.png"/>
-								<span class="login-span">登入</span>
+								<span class="login-span" id="confirmBtn">登入</span>
 						</div>
 				</div>
 		    	<!-- <img class="background" src="../images/drawable-xhdpi/gerenzhongxinbeijing.png"/> -->
@@ -291,6 +291,9 @@
 		    </div>
 		</div>
 
+		<!-- 退出登录确认框 -->
+		<div class="mui-popup mui-popup-in" style="display: none;"><div class="mui-popup-inner"><div class="mui-popup-title">温馨提示</div><div class="mui-popup-text">你确定退出登录吗？</div></div><div class="mui-popup-buttons"><span class="mui-popup-button">确定</span><span class="mui-popup-button mui-popup-button-bold">取消</span></div></div>
+
 
 		<nav class="  footTab">
 				<a class=" footTabnav" href="../index.html">
@@ -314,14 +317,71 @@
 
 </html>
 		<script type="text/javascript" src="../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../js/common.js"></script>
 <script >
     var loginbtn = document.getElementById('loginbtn');
     loginbtn.onclick = function(){
-      window.location.href = "../html/login.html";
+      // window.location.href = "../html/login.html";
     }
     
-    	$("#go_w").on('tap', function() {
-				mui.back();
+    	// $("#go_w").on('tap', function() {
+			// 	mui.back();
+			// })
+
+			$(function(){
+
+				
+
+				$('#loginbtn').on("click",function(){
+
+					if( localStorage.getItem("token") ){
+						    // 退出登录
+								// localStorage.removeItem("token");
+								// location.reload();
+								// alert('退出登录');
+								mui.confirm("是否要退出","警告",["确定","取消"],function(etype){
+										var index = etype.index ;
+										if(index == 0 ){
+											// 退出登录
+											localStorage.removeItem("token");
+											location.reload();
+											// alert('退出登录');
+										}else if(index == 1){
+												// 点取消 不退出
+										}
+								})
+						} else {
+							console.log('跳转到登录页面');
+							setTimeout("window.location.href='../html/login.html'", 1000);  
+						}
+				})
+
+
+
+				var apiurl = "/hyapi/user/getdetail";
+
+				var token = localStorage.getItem("token");
+
+				$.post(apiurl, {token:token}, function(res){
+					if(res.errcode== 0 ){
+						console.log(res.data);
+						console.log('已登录');
+
+						$(".userName .name").html(res.data.nick_name);
+
+						$(".login-span").html('登出');
+						
+						}else{
+							mui.toast( res.errmsg ) ;
+						}
+						
+					})
+
+
+
+
+
 			})
+
     
 </script>

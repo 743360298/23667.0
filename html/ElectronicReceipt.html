@@ -1,0 +1,164 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" href="../css/head.css">
+		<script src="../js/mui.min.js"></script>
+    <script src="../js/public.js"></script>
+    <script src="../js/zepto.js"></script>
+		<script>
+			mui.init();
+		</script>
+    <style type="text/css">
+      html{
+        background-color: #eaeaea;
+      }
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      #header{
+        background-color: #fff;
+        border-bottom: 1px solid #eaeaea;
+      }
+			.head-img{
+				padding: 0.1rem 0 ; 
+			}
+			.head-img img{
+				width: 70%;
+				height: 70%;
+				float: right;
+			}
+			.mui-content{
+				padding:  0.3rem;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+			}
+      html{
+        background-color: #fff;
+      }
+      .mui-bar-nav{
+        border: 0;
+        box-shadow: 0 0 0 #ccc;
+      }
+
+      .ThisMonth{
+        padding: 0.15rem 0.3rem;
+      }
+      ul{
+        margin: 0;
+        padding: 0;
+      }
+      li{
+        list-style: none;
+      }
+
+
+      .isRen{
+        color: red;
+      }
+      .negativeBlue{
+        color:#1281e0;
+      }
+
+     .Receipt{
+       background-color: #eaeaea;
+       height: 8.24rem;
+       width: 100%;
+       margin-top: 0.3rem;
+     }
+     .Receipt span{
+        font-size: 0.92rem;
+        display: block;
+        text-align: center;
+        line-height: 8.24rem;
+        color: #b8b8b8;
+     }
+     .preview{
+       display: block;
+       padding: 0.3rem ;
+       text-align: center;
+       color:#1281e0;
+     }
+     .ReceiptTxt{
+       font-size: 0.28rem;
+       color:#666;
+     }
+     #nextstepBtn{
+				border-radius: 50px;
+        left: 50%;
+        bottom: 0;
+        transform: translate(-50%,0);
+        margin: 0  ;
+        margin-top: 0.3rem;
+        border: 0;
+        background: url('../images/drawable-xhdpi/yuanjiao.png') no-repeat;
+        background-size: 100% 100%;
+        width: 5.9rem;
+        height: 0.8rem;
+        font-size: 0.33rem;
+			 }
+       .mui-btn-block{
+         padding: 0;
+       }
+    </style>
+	</head>
+
+	<body>
+			<header id="header" class="mui-bar mui-bar-nav">
+				<h1 class="mui-title">转账电子回单</h1>
+        <button  class=" mui-action-back mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left"><span class="mui-icon mui-icon-left-nav"></span></button>
+
+      </header>
+
+      <div class="mui-content">
+        <div class="Receipt">
+          <span>电子回单</span>
+        </div>
+        <span class="preview">预览查看</span>
+        <p class="ReceiptTxt">
+            用户申请电子回单常作为纠纷、诉讼、税务稽查等事务的证明材料，电子回单的法律效力以有关机关实际判断为主
+        </p>
+
+        <button type="button" id="nextstepBtn" class="mui-btn mui-btn-primary mui-btn-block">申请</button>
+        
+
+      </div>
+
+
+
+
+
+		<script type="text/javascript">
+			mui.plusReady(function(){
+				mui(".name")[0].addEventListener('tap',function(){
+					plus.webview.open('login.html', 'login', {}, 'slide-in-right', 200);
+				})
+			})
+		</script>
+	<!-- Code injected by live-server -->
+<!-- Code injected by live-server -->
+
+</body>
+
+</html>
+<script>
+    	var nextstepBtn = document.getElementById('nextstepBtn');
+      nextstepBtn.onclick = function(){
+          window.location.href = "../html/ElectronicReceipt2.html";
+    }
+</script>
+
+

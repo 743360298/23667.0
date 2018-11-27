@@ -18,12 +18,13 @@
 		<style type="text/css">
 		body{
 			background-color: #eaeaea;
+			position: relative !important;
 		}
 			.head-img{
 				/* padding: 0.1rem 0 ;  */
 			}
 			#header{
-				z-index: 999999999999;
+				z-index: 101;
 			}
 			#serviceBtn{
 				padding-right: 0.1rem ;
@@ -126,11 +127,11 @@
 			.user-info .mui-input-clear{
 				font-size: 18px;
 			}
-			.infoBtn{
+			/* .infoBtn{
 				position: absolute;
 				top: 50%;
 				transform: translateY(15%);
-			}
+			} */
 			#userName,#enterpriseName{
 				position: absolute;
 				top: 50%;
@@ -144,7 +145,7 @@
 				right: 0;
 				transform: translateY(-50%);
 			}
-			#choose,#gender{
+			#choose,#gender,#contractor,#institutions{
 				color: #666;
 				font-size: 0.3rem;
 			}
@@ -171,9 +172,9 @@
 			#idNum,#IdNo{
 				font-size: 0.3rem;
 			}
-			.idNum .mui-input-row {
+			/* .idNum .mui-input-row {
 				padding:  5.5px 0;
-			}
+			} */
 			.idNum .mui-input-row .mui-input-clear{
 				padding: 10px 20px 10px 15px;
 			}
@@ -184,7 +185,7 @@
 				margin-right: 10px;
 			}
 			.positive{
-				padding: 0.3rem;
+				padding: 0.2rem 0.3rem;
 				display: flex;
 				background-color: #fff;
 				margin-bottom: 0.1rem;
@@ -249,7 +250,7 @@
 				width: 50%;
 			}
 			.personalTab2{
-				display: block;
+				display: none;
 			}
 			.disposeBox{
 				padding: 0 15px;
@@ -325,6 +326,140 @@
 				font-size: 0.24rem;
 				line-height: initial;
 			}
+
+			/* 失败提示框 */
+			.ValidationFails{
+				width: 5.74rem;
+				height: 4.9rem;
+				background-color: #fff;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				border-radius: 5px;
+				z-index: 9999999999999;
+				padding: 0.6rem 0 0.4rem;
+			  display: none;
+			}
+			.ValidationFails img,
+			.successful img{
+				display: block;
+				margin: 0 auto;
+				width: 1.18rem;
+				height: 1.18rem;
+			}
+			.ValidationFails  p	,
+			.successful  p	{
+				padding: 0.3rem;
+				text-align: center;
+				color: #333333;
+				font-size: 0.36rem;
+				margin: 0;
+			}
+			.ValidationFails p:nth-child(3){
+				font-size: 0.24rem;
+				color: #1aa0ff;
+				display: block;
+				margin: 0 auto;
+			}
+			.ValidationFails  #returnBtn{
+				background: url("../images/drawable-xhdpi/xiaoyuanjiao.png");
+				margin:0 auto ;
+				width: 2.7rem;
+				height: 0.8rem;
+				display: block;
+				border-radius: 0.8rem;
+				background-size: 100% 100%;
+				font-size: 0.36rem;
+				color: #ffffff;
+			}
+			.successful{
+				width: 5.74rem;
+				height: 4.9rem;
+				background-color: #fff;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				border-radius: 5px;
+				z-index: 9999999999999;
+				padding: 0.6rem 0 0.4rem;
+			  display: none;
+			}
+			.successful p:nth-child(2){
+				padding: 0.25rem;
+			}
+			.successful p:nth-child(3){
+				font-size: 0.24rem;
+				line-height: initial;
+				padding: 0 0.4rem 0.2rem;
+			}
+			#deterBtn{
+				background: url("../images/drawable-xhdpi/xiaoyuanjiao.png");
+				margin:0 auto ;
+				width: 2.7rem;
+				height: 0.8rem;
+				display: block;
+				border-radius: 0.8rem;
+				background-size: 100% 100%;
+				font-size: 0.36rem;
+				color: #ffffff;
+			}
+			
+			/* 证件类型提示框 */
+			ul{
+				margin: 0;
+				padding: 0;
+			}
+			li{
+				list-style: none;
+			}
+			.certificate, .gender{
+				background-color: #fff;
+				padding:0 0.3rem;
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				display: none;
+				z-index: 999999999999;
+			}
+			.certificate .certificateHead,
+			.gender .genderHead{
+				padding:0.2rem 0;
+				display: flex;
+				justify-content: space-between;
+				border-bottom: 1px #eee solid;
+			}
+			.certificate .certificateHead span:nth-child(1),
+			.gender .genderHead span:nth-child(1){
+				font-size: 0.3rem;
+				color: #333;
+			}
+			.certificate .certificateHead span:nth-child(2),
+			.gender .genderHead span:nth-child(2){
+				color: #1aa0ff;
+				font-size: 0.3rem;
+			}
+			.certificate .certificateList{
+				padding: 0.3rem;
+				display: flex;
+				flex-direction: column;
+			}
+			.certificate .certificateList,
+			.gender .genderList{
+				padding: 0.3rem;
+			}
+			.certificate .certificateList li,
+			.gender .genderList li{
+				padding: 0.15rem 0;
+				display: flex;
+				justify-content: center;
+				color: #333;
+			}
+			.certificate .certificateList .cActive{
+
+			}
     </style>
 	</head>
 
@@ -345,7 +480,7 @@
 					<span>您没有进行身份认证，认证通过后才能签约</span>
 				</div>
 			</div>
-
+			<!-- 切换tab按钮 -->
 			<div class="radio-box">
 				<div class="personal">
 					<span class="radioImg2 radioImg"></span>
@@ -356,7 +491,7 @@
 					<label>企业认证</label>
 				</div> 
 			</div>
-
+			<!-- 个人认证 -->
 			<div class="personalTab1 ">
 					<form class="mui-input-group user-info">
 							<div class="mui-input-row">
@@ -424,6 +559,7 @@
 						</div>
 					</div>
 			</div>
+			<!-- 企业认证 -->
 			<div class="personalTab2 ">
 					<form class="mui-input-group user-info">
 							<div class="mui-input-row">
@@ -437,7 +573,7 @@
 							<div class="mui-input-row" id="contractorBtn">
 									<label>签约人类型</label>
 									<div class="choose mui-pull-right">
-											<span id="choose">请选择</span>
+											<span id="contractor">请选择</span>
 											<span class=" mui-pull-right mui-icon mui-icon-arrowright"></span>
 									</div>
 							</div>
@@ -447,7 +583,7 @@
 							<div class="mui-input-row" id="natureBtn">
 									<label>企业性质</label>
 									<div class="choose mui-pull-right">
-											<span id="gender">机构(法院)</span>
+											<span id="institutions">机构(法院)</span>
 											<span class=" mui-pull-right mui-icon mui-icon-arrowright"></span>
 									</div>
 							</div>
@@ -486,11 +622,58 @@
 						</div>
 
 					</div>
-					
-
 			</div>
 
 			<button type="button" id="certificationBtn" class="mui-btn mui-btn-primary mui-btn-block">去认证</button>
+
+
+			<!-- 认证失败提示框 -->
+			<div class="ValidationFails"> 
+				<img src="../images/drawable-xhdpi/shibai.png" alt="">
+				<p>认证失败</p>
+				<p>请核对您的姓名与身份证是否匹配</p>
+				<button id="returnBtn">返回修改</button>
+			</div>
+
+			<!-- 认证成功提示框 -->
+			<div class="successful"> 
+				<img src="../images/drawable-xhdpi/tijiaochenggong.png" alt="">
+				<p>提交成功</p>
+				<p>恭喜您，您的企业认证信息提交成功！客服会 尽快验证您的信息，届时会致电通知您，谢谢 您对我们工作的支持！</p>
+				<button id="deterBtn">确定</button>
+			</div>
+
+			<!-- 证件选择 -->
+			<div class="certificate">
+					<div class="certificateHead">
+						<span class="cCancelBtn">取消</span>
+						<span class="cDeterBtn">确定</span>
+					</div>
+					<ul class="certificateList">
+						<li>身份证</li>
+						<li>护照</li>
+						<li>台湾居民来往大陆通行证</li>
+						<li>港澳居民来往大陆通行证</li>
+					</ul>
+			</div>
+
+			<!-- 性别选择 -->
+			<div class=" gender">
+					<div class="genderHead">
+						<span class="cCancelBtn">取消</span>
+						<span class="cDeterBtn">确定</span>
+					</div>
+					<ul class="genderList">
+						<li>女</li>
+						<li>男</li>
+					</ul>
+			</div>
+
+			
+
+			<!-- 遮罩层 -->
+			<div class="mui-popup-backdrop mui-active" style="display: none;"></div>
+
 
 
 
@@ -503,11 +686,24 @@
 		</script>
 	</body>
 </html>
+<script src="../js/common.js"></script>
 <script>
 	window.onload = function () {
+
+		
+
+		if( !isLogin() ) {
+			location.href = "../html/login.html";
+		}
+
 		serviceBtn();
 		radioBtn();
 		genderBtn();
+		enterBtn();
+		// certificationBtn();
+		// ValidationFailsBtn();
+		certificate();
+		// successfulBtn();
 	}
 	    // 客服
 			function serviceBtn() {
@@ -523,24 +719,11 @@
 					})
 			}
 			
-			// 选择性别
-			function genderBtn() {
-				$('#genderBtn').click(function () {
-							mui.confirm("性别", "请选择", ["男", "女"], function (etype) {
-								if(etype.index == 0 ){
-										// 未被选中的li标签数组
-										console.log("男");
-								} else if(etype.index == 1){
-										console.log("女");
-								}
-					  	})	
-					})
-			}
+
 
 		// 单选框
 		function radioBtn() {
 				$(function () {
-					
 						$(".radioImg2:eq(0)").on("click",function(){
 							$(this).addClass('radioImg')
 							$(".radioImg2:eq(1)").removeClass('radioImg')
@@ -559,5 +742,167 @@
 						})
 				})
 		}
+
+		// 点击提交
+		function enterBtn() {
+			$(function () {
+				$('#certificationBtn').on('click',function () {
+
+					var username = $.trim($("#userName").val());
+					var cardtype = $.trim($("#choose").text());
+					var gender = $.trim($("#gender").text());
+					var idNum = $.trim($("#idNum").val());
+
+					var enterpriseName = $.trim($("#enterpriseName").val());
+					var contractor = $.trim($("#contractor").text());
+					var institutions = $.trim($("#institutions").text());
+					var IdNo = $.trim($("#IdNo").val());
+
+					var type = "personal";
+					if( $(".enterprise").find("span.radioImg2").hasClass("radioImg") ) { //企业认证
+						type = "enterprise";
+					}
+
+					var param, p;
+					var token = localStorage.getItem("token");
+					if( type == "personal" ) {
+						p = {
+							realname: username,
+							sex: username,
+							card_type: username,
+							number: username,
+							photo_1: "test1.jpg", //test
+							photo_2: "test2.jpg", //test
+						};						
+					} else {
+						p = {
+							companyname: enterpriseName,
+							nature: institutions,
+							sign_type: contractor,
+							number: IdNo,
+							photo: "test.jpg"
+						}
+					}
+					param = {
+						common_param : JSON.stringify(p),
+						token: token
+					}
+					//console.log(type, param);
+					
+
+					var apiurl = "/hyapi/user/postpersonalauth";
+					if( type == "enterprise" ) {
+						apiurl = "/hyapi/user/postcompanyauth";
+					}
+					$.post(apiurl, param, function(res){
+						if( res.errcode == 0 ) {
+							console.log('成功');
+							mui.toast( "提交成功" ) ;   
+							// $('.successful').fadeIn(200);
+							// $('.mui-active').show();
+						} else {
+							console.log( res.errmsg );
+							mui.toast( res.errmsg ) ;   
+							// $('.ValidationFails').fadeIn(200);
+							// $('.mui-active').show();
+						}
+						
+					});
+
+					return;
+
+				})
+			
+			})
+		}
+
+		
+		//  提交失败
+		function ValidationFailsBtn() {
+			$(function () {
+				$('#certificationBtn').on('click',function () {
+					$('.ValidationFails').fadeIn(200);
+					$('.mui-active').show();
+				})
+				$('#returnBtn').on('click',function () {
+					$('.ValidationFails').fadeOut(200);
+					$('.mui-active').hide();
+				})
+				$('.mui-active').on('click',function () {
+					$('.ValidationFails').fadeOut(200);
+					$('.mui-active').hide();
+				})
+			})
+		}
+		//  提交成功
+		function successfulBtn() {
+			$(function () {
+				$('#certificationBtn').on('click',function () {
+					$('.successful').fadeIn(200);
+					$('.mui-active').show();
+				})
+				$('#returnBtn').on('click',function () {
+					$('.successful').fadeOut(200);
+					$('.mui-active').hide();
+				})
+				$('.mui-active').on('click',function () {
+					$('.successful').fadeOut(200);
+					$('.mui-active').hide();
+				})
+			})
+		}
+
+		// 证件类型提示框
+		function certificate() {
+			$(function () {
+				$('#choose').on('click',function () {
+					$('.certificate').slideDown(200);
+					$('.mui-active').show();
+				})
+				$('.cCancelBtn').on('click',function () {
+					$('.certificate').slideUp(200);
+					$('.mui-active').hide();
+				})
+				// 确定提交证件类型 
+				var a;
+				// $('.cDeterBtn').on('click',function () {
+					$('.certificateList li').click(function(){ 
+							a=$(this).html()
+							// console.log(a)
+							// $('#choose').html($(this).html())
+							// $('.certificate').slideUp(200);
+							// $('.mui-active').hide();
+					})
+					$('.cDeterBtn').on('click',function () {
+						$('#choose').html(a)
+							$('.certificate').slideUp(200);
+							$('.mui-active').hide();
+					})
+				// })
+
+				$('.mui-active').on('click',function () {
+					$('.certificate').slideUp(200);
+					$('.mui-active').hide();
+				})
+			})
+		}
+
+		// 选择性别
+		function genderBtn() {
+				$('#genderBtn').click(function () {
+							$('.gender').slideDown(200);
+							$('.mui-active').show();
+					})
+		  	$('.cCancelBtn').on('click',function () {
+							$('.gender').slideUp(200);
+							$('.mui-active').hide();
+				})
+				$('.genderList li').click(function(){ 
+							$('#gender').html($(this).html())
+							$('.gender').slideUp(200);
+							$('.mui-active').hide();
+					})
+			}
+			
 
 </script>
